@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Beetle;
+namespace BeetleCore;
 
 
 class Helper

@@ -1,9 +1,9 @@
 <?php
 
-namespace Beetle;
+namespace BeetleCore;
 
-use Beetle\Admin\Admin;
-use Beetle\Fields\Basic;
+use BeetleCore\Admin\Admin;
+use BeetleCore\Fields\Basic;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 

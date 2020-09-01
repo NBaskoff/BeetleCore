@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Beetle;
+namespace BeetleCore;
 
 
 class FileArray

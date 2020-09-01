@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Beetle\Fields;
+namespace BeetleCore\Fields;
 
 class Textbox extends Basic
 {

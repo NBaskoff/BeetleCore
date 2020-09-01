@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Beetle\Fields;
+namespace BeetleCore\Fields;
 
 
 use Illuminate\Database\Eloquent\Builder;

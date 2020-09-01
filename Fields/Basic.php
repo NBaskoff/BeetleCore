@@ -1,6 +1,6 @@
 <?php
 
-namespace Beetle\Fields;
+namespace BeetleCore\Fields;
 
 use App\Admin\Admin;
 use App\Form;

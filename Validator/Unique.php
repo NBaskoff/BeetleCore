@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Beetle\Validator;
+namespace BeetleCore\Validator;
 
 use Beetle\Filter;
 use Beetle\MySQL;

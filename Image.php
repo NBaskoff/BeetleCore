@@ -1,6 +1,6 @@
 <?php
 
-namespace Beetle;
+namespace BeetleCore;
 
 use WideImage\WideImage;
 use const FDROOT;
