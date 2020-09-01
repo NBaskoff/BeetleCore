@@ -1,5 +1,12 @@
 {
-    "name": "nbaskoff/beetle-core",
+    "name": "nbaskoff/beetlecore",
+    "keywords": [
+        "laravel",
+        "admin",
+        "administrator",
+        "crud",
+        "panel"
+    ],
     "type": "library",
     "license": "NIT",
     "authors": [
