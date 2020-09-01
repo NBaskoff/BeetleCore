@@ -1,5 +1,4 @@
 <?php
-
 namespace BeetleCore;
 
 use WideImage\WideImage;
