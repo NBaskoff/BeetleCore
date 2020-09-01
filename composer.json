@@ -8,13 +8,18 @@
         "panel"
     ],
     "type": "library",
-    "license": "NIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Nikolay Baskoff",
             "email": "nbaskoff@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "BeetleCore\\": ""
+        }
+    },
     "minimum-stability": "dev",
     "require": {
         "php": "^7.2.5"
