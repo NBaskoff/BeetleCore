@@ -1,0 +1,15 @@
+{
+    "name": "nbaskoff/beetle-core",
+    "type": "library",
+    "license": "NIT",
+    "authors": [
+        {
+            "name": "Nikolay Baskoff",
+            "email": "nbaskoff@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2.5"
+    }
+}
