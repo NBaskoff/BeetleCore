@@ -31,7 +31,7 @@ class Images extends Basic
         }
 
         $class = $this;
-        return view("fields." . $this->shotName(), compact("action", "value", "class", "field"))->toHtml();
+        return view("beetlecore::fields." . $this->shotName(), compact("action", "value", "class", "field"))->toHtml();
     }
 
     public function show($records)

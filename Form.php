@@ -126,8 +126,8 @@ class Form
             }
 
         if (empty($this->record->getAttribute($this->record->getKeyName()))) {
-            if (!empty($this->record->position)) {
-                $save[$this->record->position] = $this->record::query()->max($this->record->position) + 1;
+            if (!empty($this->record->positionKey)) {
+                $save[$this->record->positionKey] = $this->record::query()->max($this->record->positionKey) + 1;
             }
             if (!empty($parent)) {
                 $explodeParent = explode(".", $parent);

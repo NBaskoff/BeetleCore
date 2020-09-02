@@ -29,7 +29,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
-        "smottt/wideimage": "^1.1"
+        "intervention/image": "^2.5"
     },
     "extra": {
         "laravel": {

@@ -4,6 +4,7 @@
 namespace BeetleCore\Fields;
 
 
+use BeetleCore\Model\Table;
 use Illuminate\Database\Eloquent\Builder;
 
 class Relation extends Basic
@@ -42,9 +43,10 @@ class Relation extends Basic
         if (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
             $multiple = true;
         }
+        /** @var $model Table */
         $model = $this->form->record->{$this->field}()->getRelated();
         $primaryKey = $model->getKeyName();
-        $nameKey = $model->field_name;
+        $nameKey = $model->nameKey;
         $value = "";
         if ($action == "find") {
             $value = "";
@@ -81,7 +83,7 @@ class Relation extends Basic
         }
         $ignoreId = implode(",", $ignoreId);
         $class = $this;
-        return view("fields." . $this->shotName(), compact("action", "ids", "class", "primaryKey", "nameKey", "multiple", "model", "ignoreId"))->toHtml();
+        return view("beetlecore::fields." . $this->shotName(), compact("action", "ids", "class", "primaryKey", "nameKey", "multiple", "model", "ignoreId"))->toHtml();
     }
 
     public function createFind(Builder $db, $data)

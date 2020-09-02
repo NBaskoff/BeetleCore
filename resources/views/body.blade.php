@@ -7,9 +7,9 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/css/chosen.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/css/styles.css?v=2">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fengyuanchen/cropperjs/dist/cropper.min.css" crossorigin="anonymous">
+    {{--<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/harvesthq/chosen-package/chosen.min.css">--}}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/css/styles.css">
     <style>
         @media (min-width: 1400px) {
             .container {
@@ -100,19 +100,20 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/tinymce/tinymce.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/tinymce/jquery.tinymce.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/tinymce/tinymcego.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/tinymce/tinymce.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/tinymce/jquery.tinymce.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/tinymce/tinymcego.js"></script>
 
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/js/jquery.tablednd.0.5.js"></script>
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/js/chosen.jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/jquery.tablednd.0.5.js"></script>
 
-<script src="//unpkg.com/cropperjs/dist/cropper.js" crossorigin="anonymous"></script>
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/js/jquery-cropper.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/js/main.js"></script>
+{{--<script src="//cdn.jsdelivr.net/gh/harvesthq/chosen-package/chosen.jquery.min.js"></script>--}}
 
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/js/admin-field-images-box.js"></script>
-<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/js/field-relations.js"></script>
+<script src="//cdn.jsdelivr.net/gh/fengyuanchen/cropperjs/dist/cropper.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh//fengyuanchen/jquery-cropper/dist/jquery-cropper.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/main.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/admin-field-images-box.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/field-relations.js"></script>
 
 </body>
 </html>

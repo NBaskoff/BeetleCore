@@ -77,7 +77,7 @@
                 </div>
 
                 @foreach($value as $info)
-                    @include("fields.image_box_load")
+                    @include("beetlecore::fields.image_box_load")
                 @endforeach
             </div>
             <div class="select-file btn btn-primary btn-sm" >Загрузить изображения</div>

@@ -80,10 +80,10 @@ jQuery(document).ready(function () {
         convert_urls: false,
     });
 
-    $(".chosen-select").chosen({
+    /*$(".chosen-select").chosen({
         no_results_text: "Ничего не найдено",
         allow_single_deselect: true,
         disable_search_threshold: 1
-    });
+    });*/
 
 });

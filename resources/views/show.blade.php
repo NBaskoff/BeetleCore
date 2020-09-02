@@ -55,7 +55,7 @@
                 <table class="table table-striped table-hover table-bordered table-sm" id="dataTable">
                     <thead class="thead-color">
                     <tr>
-                        @if (!empty($model->position))
+                        @if (!empty($model->positionKey))
                             <th width="50px"></th>
                         @endif
                         <th>#</th>
@@ -74,7 +74,7 @@
                             $recordId = $record->getAttribute($model->getKeyName())
                         @endphp
                         <tr>
-                            @if (!empty($model->position))
+                            @if (!empty($model->positionKey))
                                 <td style="text-align: center;">
                                     <div class="dragRow" rel="{{$recordId}}"><i class="fas fa-arrows-alt-v"></i>
                                     </div>
