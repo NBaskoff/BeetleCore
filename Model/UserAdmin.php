@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Hash;
 class UserAdmin extends Table
 {
 	protected $table = "user_admin";
-	public $name = "Администраторы";
+	public $modelName = "Администраторы";
 	protected $fields = [
-		"login" => [
+		"name" => [
 			"name" => "Имя",
 			"type" => Textbox::class,
 		],		

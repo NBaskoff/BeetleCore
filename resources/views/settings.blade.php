@@ -1,4 +1,4 @@
-@extends("admin.body")
+@extends("beetlecore::body")
 @section('title')
     Настройки сайта
 @endsection

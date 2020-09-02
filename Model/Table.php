@@ -11,27 +11,26 @@ class Table extends Model
 	 * Название модуля
 	 * @var string
 	 */
-	public $name = "";
+	public $modelName = "";
 	/**
 	 * Описание модуля
 	 * @var string
 	 */
-	public $description = "";
+	public $modelDescription = "";
 	/**
 	 * @var string поле где содерджится имя записи
 	 */
-	public $field_name = "name";
+	public $nameKey = "name";
 	/**
 	 * @var string поле для определания позиции
 	 */
-	public $position = "";
+	public $positionKey = "";
 	protected $fields = [];
 	protected $settings = [];
 	protected $relations = [];
-	protected $guarded = []; //чтобы можно было заполнять поля
 	protected $links = [];
 	protected $linkSelf = "";
-
+	protected $guarded = []; //чтобы можно было заполнять поля
 
 	public function getFields()
 	{
@@ -61,9 +60,9 @@ class Table extends Model
 			foreach ($data as $k => $i) {
 				$ids[] = $i[0];
 			}
-			$positions = static::query()->whereIn($this->primaryKey, $ids)->pluck($this->position, $this->primaryKey)->toArray();
+			$positions = static::query()->whereIn($this->primaryKey, $ids)->pluck($this->positionKey, $this->primaryKey)->toArray();
 			foreach ($data as $k => $i) {
-				static::find((int)$i[0])->update([$this->position => $positions[(int)$i[1]]]);
+				static::find((int)$i[0])->update([$this->positionKey => $positions[(int)$i[1]]]);
 			}
 		}
 	}
@@ -81,8 +80,8 @@ class Table extends Model
 			$explodeParent = explode(".", $this->linkSelf);
 			$records = $records->where($this->{$explodeParent[1]}()->getForeignKeyName(), $id);
 		}
-		if (!empty($this->position)) {
-			$records = $records->orderBy($this->position);
+		if (!empty($this->positionKey)) {
+			$records = $records->orderBy($this->positionKey);
 		}
 		return $records;
 	}
@@ -127,7 +126,7 @@ class Table extends Model
 		$breadCrumb = [];
 		if (!empty($this->linkSelf)) {
 			$link = explode(".", $this->linkSelf);
-			$breadCrumb[] = ["id" => $this->getAttribute($this->getKeyName()), "name" => $this->getAttribute($this->field_name)];
+			$breadCrumb[] = ["id" => $this->getAttribute($this->getKeyName()), "name" => $this->getAttribute($this->nameKey)];
 			$parent = $this->{$link[0]};
 			if (!empty($parent)) {
 				$breadCrumb = array_merge($parent->getSelfBreadCrumbs(), $breadCrumb);

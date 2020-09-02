@@ -2,7 +2,6 @@
 
 namespace BeetleCore;
 
-use BeetleCore\Admin\Admin;
 use BeetleCore\Fields\Basic;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -16,12 +15,12 @@ class Form
      */
     protected $fields;
     /**
-     * @var Admin
+     * @var \BeetleCore\Model\Table
      */
     public $record;
     protected $theme = "fields";
 
-    public function __construct(Admin $record, $theme = "fields")
+    public function __construct(\BeetleCore\Model\Table $record, $theme = "fields")
     {
         $this->record = $record;
         $fields = $record->getFields();

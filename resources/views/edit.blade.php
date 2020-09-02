@@ -1,6 +1,6 @@
-@extends("admin.body")
+@extends("beetlecore::body")
 @section('title')
-    {{$model->name}} :: Добавление / Редактирование записи
+    {{$model->modelName}} :: Добавление / Редактирование записи
 @endsection
 @section('css')@endsection
 @section('js')@endsection
@@ -8,7 +8,7 @@
 
         <div class="card margin-top">
             <div class="card-header">
-                {{$model->name}} :: Добавление / Редактирование записи
+                {{$model->modelName}} :: Добавление / Редактирование записи
             </div>
             <div class="card-body">
                 <form method="POST" enctype="multipart/form-data">

@@ -1,6 +1,6 @@
-@extends("admin.body")
+@extends("beetlecore::body")
 @section('title')
-    {{$model->name}} :: Просмотр записей
+    {{$model->modelName}} :: Просмотр записей
 @endsection
 @section('css')@endsection
 @section('js')@endsection
@@ -10,7 +10,7 @@
             <div class="row">
                 @if ($id == 0)
                     <div class="col-md-11 card-header-text">
-                        {{$model->name}} :: Просмотр записей
+                        {{$model->modelName}} :: Просмотр записей
                     </div>
                 @else
                     <div class="col-md-1">
@@ -20,7 +20,7 @@
                         </a>
                     </div>
                     <div class="col-md-10 card-header-text">
-                        {{$model->name}} :: Просмотр записей
+                        {{$model->modelName}} :: Просмотр записей
                     </div>
                 @endif
 

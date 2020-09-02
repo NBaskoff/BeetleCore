@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/css/chosen.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore/resources/css/styles.css?v=2">
+    <style>
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1350px;
+            }
+        }
+    </style>
     <title>@yield('title') :: BeetleCMS</title>
 </head>
 <body>
