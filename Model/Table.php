@@ -2,11 +2,9 @@
 
 namespace BeetleCore\Model;
 
-class Table
-{
-	use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Table extends Model
 {
 
 	/**
@@ -44,7 +42,7 @@ class Admin extends Model
 	{
 		$fields = $this->getFields();
 		if (!empty($fields)) foreach ($fields as $k => $field) {
-			if (isset($field["show"]) AND $field["show"] === false) {
+			if (isset($field["show"]) and $field["show"] === false) {
 				unset($fields[$k]);
 			}
 		}
@@ -79,7 +77,7 @@ class Admin extends Model
 			$ids = $parentModel::find($id)->{$explodeParent[1]}()->getQuery()->pluck($this->getTable() . "." . $this->getKeyName());
 			$records = $records->whereIn($this->getKeyName(), $ids);
 		}
-		if (isset($parent) AND !empty($this->linkSelf)) {
+		if (isset($parent) and !empty($this->linkSelf)) {
 			$explodeParent = explode(".", $this->linkSelf);
 			$records = $records->where($this->{$explodeParent[1]}()->getForeignKeyName(), $id);
 		}

@@ -13,18 +13,20 @@ class CreateAdminUsersTable extends Migration
      */
     public function up()
     {
-		Schema::create("admin_users", function (Blueprint $table) {
+		Schema::create("user_admin", function (Blueprint $table) {
 			$table->increments("id");
 			$table->string("name")->index();
 			$table->string("login")->index()->unique();
 			$table->string("password");
-			$table->rememberToken();
+			//$table->rememberToken();
 			$table->timestamps();
 		});
-		DB::table("admin")->insert([
+		DB::table("user_admin")->insert([
 			"name" => "admin",
 			"login" => "admin",
-			"password" => Hash::make("admin")
+			"password" => Hash::make("admin"),
+			"created_at" => date("Y-m-d H:i:s"),
+			"updated_at" => date("Y-m-d H:i:s")
 		]);
     }
 
@@ -35,6 +37,6 @@ class CreateAdminUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("admin_users");
+        Schema::dropIfExists("user_admin");
     }
 }

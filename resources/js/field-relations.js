@@ -1,7 +1,7 @@
 jQuery(document).ready(function () {
     var relationUrl = window.location.pathname;
     relationUrl = relationUrl.split('/');
-    relationUrl = "/" + relationUrl[1] + "/relation";
+    relationUrl = "/" + relationUrl[1] + "/system/relation";
 
     var relationDataField = "";
     var relationModel = "";

@@ -1,4 +1,8 @@
 jQuery(document).ready(function () {
+    var imageUrl = window.location.pathname;
+    imageUrl = imageUrl.split('/');
+    imageUrl = "/" + imageUrl[1] + "/system/image";
+    
     var imagesBox;
     var imageWidth = 0;
     var imageHeight = 0;
@@ -32,7 +36,7 @@ jQuery(document).ready(function () {
                     $.ajax({
                         type: "POST",
                         enctype: 'multipart/form-data',
-                        url: "/admin/load",
+                        url: imageUrl + "/load",
                         data: dataArray,
                         processData: false,
                         contentType: false,
@@ -121,7 +125,7 @@ jQuery(document).ready(function () {
         data.name = imageName;
         data.field = imageField;
         jQuery.ajax({
-            url: "/admin/size",
+            url: imageUrl + "/size",
             type: "POST",
             data: data,
             success: function (data) {
