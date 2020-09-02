@@ -2,7 +2,6 @@
 namespace BeetleCore;
 
 use WideImage\WideImage;
-use const FDROOT;
 
 class Image
 {
@@ -54,15 +53,15 @@ class Image
             mkdir($_SERVER["DOCUMENT_ROOT"] . "/var/image_cache/", 0777, true);
         }*/
         //перед началом каких-либо работ проверим наличие фала
-        if ((!file_exists(FDROOT . $this->settings['file'])) OR (empty($this->settings['file']))) {
-            $error[] = "Файл '" . FDROOT . $this->settings['file'] . "' не найден";
+        if ((!file_exists(public_path() . $this->settings['file'])) OR (empty($this->settings['file']))) {
+            $error[] = "Файл '" . public_path() . $this->settings['file'] . "' не найден";
         } else {
             //составим имя файла
             $file_name = $this->createFileName();
             $file_name = "/images/" . $file_name;
             //Проверим закешированный
-            if (!file_exists(FDROOT . $file_name)) {
-                $this->file = WideImage::load(FDROOT . $this->settings['file']);
+            if (!file_exists(public_path() . $file_name)) {
+                $this->file = WideImage::load(public_path() . $this->settings['file']);
                 //Определим последовательность действиий
                 $action = $this->conveyor();
                 //Выполним их
@@ -72,7 +71,7 @@ class Image
                     }
                 //сохраним файлик
                 imageinterlace($this->file->getHandle(), 1);
-                $this->file->saveToFile(FDROOT . $file_name);
+                $this->file->saveToFile(public_path() . $file_name);
             }
             if (!empty($error)) {
                 $result = false;

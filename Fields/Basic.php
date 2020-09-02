@@ -18,11 +18,11 @@ class Basic
 
     /**
      * Массив проверок
-     * @var Beetle\Validator\Basic
+     * @var BeetleCore\Validator\Basic
      */
     protected $validators = [];
     /**
-     * @var Beetle\Form
+     * @var BeetleCore\Form
      */
     protected $form;
     public $field = "";
@@ -137,7 +137,7 @@ class Basic
             $value = $data[$this->field];
         }
         $class = $this;
-        return view("fields." . $this->shotName(), compact("action", "value", "class"))->toHtml();
+        return view("beetlecore::fields." . $this->shotName(), compact("action", "value", "class"))->toHtml();
     }
 
     public function getError()

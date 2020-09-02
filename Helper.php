@@ -57,8 +57,8 @@ class Helper
      */
     public static function sendTelegramMessage($telegrammText)
     {
-        $token = "530707043:AAHuwPBPT49S7YFtCnMP4Ripejrye0FsuFs";
-        $chat_id = "-316937313";
+        $token = "token";
+        $chat_id = "id";
         if (!empty($telegrammText))
             foreach ($telegrammText as $k => $i) {
                 $telegrammText[$k] = urlencode($i);

@@ -1,0 +1,193 @@
+/*
+    Created on : 05.07.2019, 1:29:58
+    Author     : Baskoff
+*/
+body {
+  background: #ecf0f5;
+}
+.navbar {
+  background: #135e8a;
+}
+.navbar a {
+  color: #ffffff;
+}
+.navbar .dropdown-menu {
+  background: #3c8dbc;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+.navbar .btn {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #3c8dbc;
+}
+.navbar .navbar-toggler {
+  color: #ffffff;
+  border-color: #868e96;
+  font-size: 30px;
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+  width: auto;
+  height: auto;
+}
+.navbar .form-inline {
+  color: #ffffff;
+}
+.findBtn {
+  display: flex;
+  align-items: flex-end;
+}
+.margin-top {
+  margin-top: 15px;
+}
+.btn-back {
+  background: #f5f9ea;
+  border-color: #868e96;
+  color: #212529;
+}
+.dragRow {
+  cursor: move;
+}
+.thead-color {
+  background: #1874a9;
+  color: #ffffff;
+}
+.btn-primary {
+  background: #135e8a;
+  border-color: #135e8a;
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: #1874a9;
+}
+.card-header {
+  background: #1874a9;
+  color: #ffffff;
+}
+.card-header .card-header-text {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.card-header .btn {
+  background: #ffffff;
+  color: #135e8a;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background: #f7f7fb;
+}
+.table-hover tbody tr:hover {
+  background: #c3e8fd;
+}
+.table a {
+  color: #000000;
+}
+.table a:hover {
+  text-decoration: none;
+}
+.table i {
+  color: #135e8a;
+}
+.table img {
+  max-width: 60px;
+  max-height: 60px;
+}
+.pagination {
+  margin: 0;
+}
+.pagination .page-link {
+  padding: 5px 12px;
+}
+.pagination .page-item.active .page-link {
+  background-color: #003248;
+  border-color: #003248;
+}
+.pagination .page-link {
+  color: #003248;
+}
+.scroll-box {
+  overflow-x: auto;
+}
+#modalCropper .modal-body .modal-image {
+  position: relative;
+}
+#modalCropper .modal-body .modal-image img {
+  max-width: 100%;
+}
+#modalCropper .save {
+  text-align: center;
+  margin: 5px 0 0 0;
+}
+.admin-field-images-box .images-list-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+.admin-field-images-box .images-list-box .image-box {
+  position: relative;
+  margin: 0 5px 5px 5px;
+  width: 200px;
+}
+.admin-field-images-box .images-list-box .image-box .image {
+  width: 100%;
+  min-height: 60px;
+  border: 1px solid #000000;
+}
+.admin-field-images-box .images-list-box .image-box .image img {
+  width: 100%;
+}
+.admin-field-images-box .images-list-box .image-box .name {
+  width: 100%;
+  text-align: center;
+}
+.admin-field-images-box .images-list-box .image-box .del {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 100%;
+  width: 24px;
+  text-align: center;
+}
+.admin-field-images-box .images-list-box .image-box .edit {
+  position: absolute;
+  right: 5px;
+  top: 32px;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 100%;
+  width: 24px;
+  text-align: center;
+}
+.admin-field-images-box .images-list-box .image-load .image {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.relation-ids {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 6px -5px 0 -5px;
+}
+.relation-ids .relation-id {
+  padding: 0 25px 5px 5px;
+  font-size: 16px;
+  position: relative;
+}
+.relation-ids .relation-id .close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#modalRelation .relation-ids {
+  min-height: 29px;
+}
+#modalRelation .table tbody tr {
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */
