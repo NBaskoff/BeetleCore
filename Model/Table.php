@@ -26,7 +26,6 @@ class Table extends Model
 	 */
 	public $positionKey = "";
 	protected $fields = [];
-	protected $settings = [];
 	protected $relations = [];
 	protected $links = [];
 	protected $linkSelf = "";

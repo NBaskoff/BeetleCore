@@ -11,7 +11,7 @@ class Form
 
     /**
      * Массив полей
-     * @var BeetleCore\Fields\Basic[]
+     * @var \BeetleCore\Fields\Basic[]
      */
     protected $fields;
     /**
