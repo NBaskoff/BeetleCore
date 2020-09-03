@@ -69,8 +69,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("admin.slider", "show")}}">Слайдер</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Настройки
+                        <!--Заказы и способы-->
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
+                        <a class="dropdown-item" href="{{route("admin.settings", "show")}}">Настройки сайта</a>
+                        <a class="dropdown-item" href="{{route("admin.delivery", "show")}}">Способы доставки</a>
+                        <a class="dropdown-item" href="{{route("admin.payment", "show")}}">Способы оплаты</a>
+                    </div>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("admin.settings", "show")}}">Настройки</a>
+
                 </li>
                 {{--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
