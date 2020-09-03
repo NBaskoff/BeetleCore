@@ -71,13 +71,13 @@ class Table extends Model
 		$records = $this::query();
 		if (!empty($parent)) {
 			$explodeParent = explode(".", $parent);
-			$parentModel = $this->{$explodeParent[0]}()->getRelated();
-			$ids = $parentModel::find($id)->{$explodeParent[1]}()->getQuery()->pluck($this->getTable() . "." . $this->getKeyName());
+			$parentModel = $this->{$explodeParent[1]}()->getRelated();
+			$ids = $parentModel::find($id)->{$explodeParent[0]}()->getQuery()->pluck($this->getTable() . "." . $this->getKeyName());
 			$records = $records->whereIn($this->getKeyName(), $ids);
 		}
 		if (isset($parent) and !empty($this->linkSelf)) {
 			$explodeParent = explode(".", $this->linkSelf);
-			$records = $records->where($this->{$explodeParent[1]}()->getForeignKeyName(), $id);
+			$records = $records->where($this->{$explodeParent[0]}()->getForeignKeyName(), $id);
 		}
 		if (!empty($this->positionKey)) {
 			$records = $records->orderBy($this->positionKey);
@@ -94,7 +94,7 @@ class Table extends Model
 	{
 		if (!empty($this->linkSelf)) {
 			$link = explode(".", $this->linkSelf);
-			$ids = $this->{$link[1]}()->getQuery()->get($this->getKeyName());
+			$ids = $this->{$link[0]}()->getQuery()->get($this->getKeyName());
 			foreach ($ids as $k => $i) {
 				$i->del();
 			}
@@ -112,7 +112,7 @@ class Table extends Model
 		$ids = [$this->getAttribute($this->getKeyName())];
 		if (!empty($this->linkSelf)) {
 			$link = explode(".", $this->linkSelf);
-			$child = $this->{$link[1]};
+			$child = $this->{$link[0]};
 			foreach ($child as $k => $i) {
 				$ids = array_merge($ids, $i->getSelfChildId());
 			}
@@ -126,7 +126,7 @@ class Table extends Model
 		if (!empty($this->linkSelf)) {
 			$link = explode(".", $this->linkSelf);
 			$breadCrumb[] = ["id" => $this->getAttribute($this->getKeyName()), "name" => $this->getAttribute($this->nameKey)];
-			$parent = $this->{$link[0]};
+			$parent = $this->{$link[1]};
 			if (!empty($parent)) {
 				$breadCrumb = array_merge($parent->getSelfBreadCrumbs(), $breadCrumb);
 			}

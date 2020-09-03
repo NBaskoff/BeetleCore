@@ -60,7 +60,7 @@ class Table
 			$record = $this->model::query()->find($record);
 		} else {
 			if (!empty($parent)) {
-				$filed = explode(".", $parent)[0];
+				$filed = explode(".", $parent)[1];
 				$record = new $this->model([$this->model->{$filed}()->getForeignKeyName() => $id]);
 			} else {
 				$record = new $this->model();

@@ -131,8 +131,8 @@ class Form
             }
             if (!empty($parent)) {
                 $explodeParent = explode(".", $parent);
-                $parentModel = $this->record->{$explodeParent[0]}()->getRelated();
-                $parentModel::find($id)->{$explodeParent[1]}()->create($save);
+                $parentModel = $this->record->{$explodeParent[1]}()->getRelated();
+                $parentModel::find($id)->{$explodeParent[0]}()->create($save);
             } else {
                 $this->record->fill($save)->save();
             }

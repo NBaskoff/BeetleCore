@@ -87,8 +87,7 @@
                             @if (!empty($model->getLinks()))
                                 <td>
                                     @foreach($model->getLinks() as $kl=>$link)
-                                        <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}}
-                                            ({{$record->{explode(".", $kl)[1]}()->getQuery()->count()}})</a><br>
+                                        <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}}({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a><br>
                                     @endforeach
                                 </td>
                             @endif
