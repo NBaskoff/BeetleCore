@@ -2,15 +2,13 @@
 
 
 namespace BeetleCore\Provider;
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
-class Migrations extends ServiceProvider
+class Views extends ServiceProvider
 {
 	public function boot()
 	{
-		Schema::defaultStringLength(191);
-		$this->loadMigrationsFrom(__DIR__ . "/../database/migrations");
+		$this->loadViewsFrom(__DIR__ . "/../resources/views", "beetlecore");
 	}
 }

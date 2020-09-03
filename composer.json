@@ -35,7 +35,8 @@
         "laravel": {
             "providers": [
                 "BeetleCore\\Provider\\Migrations",
-                "BeetleCore\\Provider\\Routes"
+                "BeetleCore\\Provider\\Routes",
+                "BeetleCore\\Provider\\Views"
             ]
         }
     }
