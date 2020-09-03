@@ -34,7 +34,7 @@
             <td style="text-align: center;">
                 <input type="checkbox" class="relation-select-input"
                        value="{{$recordId}}"
-                       data-name="{{$record->getAttribute($model->field_name)}}"
+                       data-name="{{$record->getAttribute($model->nameKey)}}"
                        @if(in_array($recordId, $ids)) checked="1" @endif
                 >
             </td>
@@ -48,7 +48,7 @@
                         $kl = $model->getLinkSelf();
                         $link =  $model->getLinks()[$kl];
                     @endphp
-                    <span class="relation-next-level" data-id="{{$recordId}}">{{$link[1]}} ({{$record->{explode(".", $kl)[1]}()->getQuery()->count()}})</span>
+                    <span class="relation-next-level" data-id="{{$recordId}}">{{$link[1]}} ({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</span>
                 </td>
             @endif
         </tr>

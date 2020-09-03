@@ -18,12 +18,12 @@ class Relation
         $html = $form->renderFind([]);
         $ids = \request()->get("ids", []);
         if (!empty($ids)) {
-            $records = $model::query()->whereIn($model->getKeyName(), $ids)->get([$model->getKeyName(), $model->field_name])->toArray();
+            $records = $model::query()->whereIn($model->getKeyName(), $ids)->get([$model->getKeyName(), $model->nameKey])->toArray();
             $ids = [];
             if (!empty($records)) foreach ($records as $k => $i) {
                 $ids[] = [
                     "id" => $i[$model->getKeyName()],
-                    "name" => $i[$model->field_name],
+                    "name" => $i[$model->nameKey],
                 ];
             }
         } else {

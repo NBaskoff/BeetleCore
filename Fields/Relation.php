@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Relation extends Basic
 {
+	protected static $search = false;
+
     public function save($data)
     {
         if (get_class($this->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsTo") {
