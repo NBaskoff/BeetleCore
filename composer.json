@@ -34,7 +34,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BeetleCore\\Provider\\Migrations"
+                "BeetleCore\\Provider\\Migrations",
+                "BeetleCore\\Provider\\Routes"
             ]
         }
     }
