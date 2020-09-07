@@ -1,6 +1,6 @@
 <?php
 
-namespace BeetleCore\Model;
+namespace BeetleCore\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

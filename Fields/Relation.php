@@ -4,7 +4,7 @@
 namespace BeetleCore\Fields;
 
 
-use BeetleCore\Model\Table;
+use BeetleCore\Models\Table;
 use Illuminate\Database\Eloquent\Builder;
 
 class Relation extends Basic

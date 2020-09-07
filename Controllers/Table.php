@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class Table
 {
 	/**
-	 * @var \BeetleCore\Model\Table
+	 * @var \BeetleCore\Models\Table
 	 */
 	protected $model;
-	protected $modelName = \BeetleCore\Model\Table::class;
+	protected $modelName = \BeetleCore\Models\Table::class;
 
 	public function __construct(Request $request)
 	{

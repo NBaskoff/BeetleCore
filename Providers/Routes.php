@@ -1,6 +1,6 @@
 <?php
 
-namespace BeetleCore\Provider;
+namespace BeetleCore\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

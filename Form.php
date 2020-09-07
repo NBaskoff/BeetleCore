@@ -15,19 +15,19 @@ class Form
      */
     protected $fields;
     /**
-     * @var \BeetleCore\Model\Table
+     * @var \BeetleCore\Models\Table
      */
     public $record;
     protected $theme = "fields";
 
-    public function __construct(\BeetleCore\Model\Table $record, $theme = "fields")
+    public function __construct(\BeetleCore\Models\Table $record, $theme = "fields")
     {
         $this->record = $record;
         $fields = $record->getFields();
         if (!empty($fields))
             foreach ($fields as $k => $i) {
                 $i["form"] = &$this;
-                $this->fields[] = new $i["type"]($k, $i, $record);
+                $this->fields[$k] = new $i["type"]($k, $i, $record);
             }
     }
 
@@ -41,17 +41,17 @@ class Form
         $html = [];
         if (!empty($this->fields))
             foreach ($this->fields as $k => $i) {
-                $html[] = $i->add();
+                $html[$k] = $i->add();
             }
         return $html;
     }
 
-    public function renderEdit($record)
+    public function renderEdit()
     {
         $html = [];
         if (!empty($this->fields))
             foreach ($this->fields as $k => $i) {
-                $html[] = $i->edit($record);
+                $html[$k] = $i->edit($this->record);
             }
         return $html;
     }
@@ -61,7 +61,7 @@ class Form
         $html = [];
         if (!empty($this->fields))
             foreach ($this->fields as $k => $i) {
-                $html[] = $i->post($request);
+                $html[$k] = $i->post($request);
             }
         return $html;
     }
@@ -72,7 +72,7 @@ class Form
         if (!empty($this->fields))
             foreach ($this->fields as $k => $i) {
                 if ($i::isSearch()) {
-                    $html[] = $i->find($data);
+                    $html[$k] = $i->find($data);
                 }
 
             }
@@ -114,7 +114,7 @@ class Form
         return $valid;
     }
 
-    public function save($data, $parent, $id)
+    public function save($data, $parent = 0, $id = 0)
     {
         $save = [];
         if (!empty($this->fields))

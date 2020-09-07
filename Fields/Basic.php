@@ -18,7 +18,7 @@ class Basic
 
     /**
      * Массив проверок
-     * @var BeetleCore\Validator\Basic
+     * @var BeetleCore\Validators\Basic
      */
     protected $validators = [];
     /**

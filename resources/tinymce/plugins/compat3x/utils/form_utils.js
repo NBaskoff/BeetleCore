@@ -70,8 +70,8 @@ function openBrowser(img_id, target_form_element, type, option) {
   }
 }
 
-function selectByValue(form_obj, field_name, value, add_custom, ignore_case) {
-  if (!form_obj || !form_obj.elements[field_name]) {
+function selectByValue(form_obj, nameKey, value, add_custom, ignore_case) {
+  if (!form_obj || !form_obj.elements[nameKey]) {
     return;
   }
 
@@ -79,7 +79,7 @@ function selectByValue(form_obj, field_name, value, add_custom, ignore_case) {
     value = "";
   }
 
-  var sel = form_obj.elements[field_name];
+  var sel = form_obj.elements[nameKey];
 
   var found = false;
   for (var i = 0; i < sel.options.length; i++) {
@@ -103,8 +103,8 @@ function selectByValue(form_obj, field_name, value, add_custom, ignore_case) {
   return found;
 }
 
-function getSelectValue(form_obj, field_name) {
-  var elm = form_obj.elements[field_name];
+function getSelectValue(form_obj, nameKey) {
+  var elm = form_obj.elements[nameKey];
 
   if (elm == null || elm.options == null || elm.selectedIndex === -1) {
     return "";
@@ -113,8 +113,8 @@ function getSelectValue(form_obj, field_name) {
   return elm.options[elm.selectedIndex].value;
 }
 
-function addSelectValue(form_obj, field_name, name, value) {
-  var s = form_obj.elements[field_name];
+function addSelectValue(form_obj, nameKey, name, value) {
+  var s = form_obj.elements[nameKey];
   var o = new Option(name, value);
   s.options[s.options.length] = o;
 }

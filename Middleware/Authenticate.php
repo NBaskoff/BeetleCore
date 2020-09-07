@@ -10,7 +10,7 @@ class Authenticate
 	public function handle(Request $request, \Closure $next)
 	{
 		if (!empty($request->get("system__enter_to_admin"))) {
-			$user = \BeetleCore\Model\UserAdmin::auth($request->get("login"), $request->get("password"));
+			$user = \BeetleCore\Models\UserAdmin::auth($request->get("login"), $request->get("password"));
 			$request->session()->put("admin", $user);
 			return redirect($request->fullUrl());
 		}

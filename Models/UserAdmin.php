@@ -1,12 +1,12 @@
 <?php
 
 
-namespace BeetleCore\Model;
+namespace BeetleCore\Models;
 
 use BeetleCore\Fields\Password;
 use BeetleCore\Fields\Textbox;
-use BeetleCore\Validator\NoEmpty;
-use BeetleCore\Validator\Unique;
+use BeetleCore\Validators\NoEmpty;
+use BeetleCore\Validators\Unique;
 use Illuminate\Support\Facades\Hash;
 
 class UserAdmin extends Table

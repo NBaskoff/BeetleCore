@@ -1,6 +1,6 @@
 <?php
 
-namespace BeetleCore\Validator;
+namespace BeetleCore\Validators;
 
 class NoEmpty extends Basic
 {

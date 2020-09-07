@@ -122,6 +122,7 @@
 <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1/resources/js/main.js"></script>
 <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1/resources/js/admin-field-images-box.js"></script>
 <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1/resources/js/field-relations.js"></script>
+<script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1/resources/js/relation-table.js"></script>
 
 </body>
 </html>

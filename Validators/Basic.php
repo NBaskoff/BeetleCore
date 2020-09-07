@@ -1,6 +1,6 @@
 <?php
 
-namespace BeetleCore\Validator;
+namespace BeetleCore\Validators;
 
 use App\Admin\Admin;
 

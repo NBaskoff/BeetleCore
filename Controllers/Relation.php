@@ -3,16 +3,18 @@
 
 namespace BeetleCore\Controllers;
 
-use BeetleCore\Model\Table;
+use BeetleCore\Models\Table;
 use BeetleCore\Form;
 use Illuminate\Http\UploadedFile;
 use Intervention\Image\ImageManagerStatic;
 
 class Relation
 {
+	protected $namespace = "App\\Admin\\";
+	
     public function form($model)
     {
-        $model = "App\Admin\\$model";
+        $model = $this->namespace . $model;
         $model = new $model;
         $form = new Form(new $model);
         $html = $form->renderFind([]);
@@ -35,7 +37,7 @@ class Relation
     public function table($model)
     {
 		/** @var $model Table */
-        $model = "App\Admin\\$model";
+        $model = $this->namespace . $model;
         $model = new $model;
         $ids = \request()->get("ids", []);
         $fields = $model->getShowFields();
