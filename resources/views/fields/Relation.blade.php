@@ -6,7 +6,7 @@
             <div class="relation-ids">
                 @foreach($ids as $id)
                     <div class="relation-id" data-id="{{$id["id"]}}">
-                        <input type="hidden" name="{{$class->field}}[]" value="{{$id["id"]}}">
+                        <input type="hidden" name="{{$class->field}}[id][]" value="{{$id["id"]}}">
                         {{$id["name"]}}
                         <div class="close">
                             <i class="fas fa-times-circle"></i>
@@ -32,7 +32,7 @@
             <div class="relation-ids">
                 @foreach($ids as $id)
                     <div class="relation-id" data-id="{{$id["id"]}}">
-                        <input type="hidden" name="{{$class->field}}[]" value="{{$id["id"]}}">
+                        <input type="hidden" name="{{$class->field}}[id][]" value="{{$id["id"]}}">
                         {{$id["name"]}}
                         <div class="close">
                             <i class="fas fa-times-circle"></i>

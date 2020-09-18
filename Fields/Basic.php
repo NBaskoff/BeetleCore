@@ -64,7 +64,12 @@ class Basic
 
     public function save($data)
     {
-        return [$this->field => trim($data[$this->field])];
+		if (isset($data[$this->field])) {
+			return [$this->field => trim($data[$this->field])];
+		} else {
+			return false;
+		}
+
     }
 
     public function del($data)

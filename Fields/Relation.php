@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Relation extends Basic
 {
-	protected static $search = false;
+    protected static $search = false;
 
     public function save($data)
     {
         if (get_class($this->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsTo") {
-            return [$this->record->{$this->field}()->getForeignKeyName() => $data[$this->field][0] ?? 0];
+            return [$this->record->{$this->field}()->getForeignKeyName() => $data[$this->field]["id"][0] ?? 0];
         } elseif (get_class($this->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\HasOne") {
-            return [$this->record->{$this->field}()->getLocalKeyName() => $data[$this->field][0] ?? 0];
+            return [$this->record->{$this->field}()->getLocalKeyName() => $data[$this->field]["id"][0] ?? 0];
         } else {
             return false;
         }
@@ -26,7 +26,7 @@ class Relation extends Basic
     {
         if (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
             if (!empty($data[$this->field])) {
-                $this->form->record->{$this->field}()->sync($data[$this->field]);
+                $this->form->record->{$this->field}()->sync($data[$this->field]["id"]);
             } else {
                 $this->form->record->{$this->field}()->sync([]);
             }
@@ -53,14 +53,18 @@ class Relation extends Basic
         if ($action == "find") {
             $value = "";
             if (!empty($data[$this->field])) {
-                $value = $data[$this->field];
+                $value = $data[$this->field]["id"];
             }
         } elseif ($action == "post") {
             if (!empty($data[$this->field])) {
-                $value = $data[$this->field];
+                $value = $data[$this->field]["id"];
             }
         } else {
-            $value = $this->form->record->{$this->field}()->getQuery()->pluck("{$model->getTable()}.$primaryKey")->toArray();
+            if (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
+                $value = $this->form->record->{$this->field}()->getQuery()->pluck("{$model->getTable()}.$primaryKey")->toArray();
+            } else {
+                $value = [$this->form->record->getAttribute($this->record->{$this->field}()->getLocalKeyName())];
+            }
         }
 
         $ids = [];
