@@ -65,7 +65,7 @@
                         @if (!empty($model->getLinks()))
                             <th></th>
                         @endif
-                        <th width="100px"></th>
+                        <th width="120px"></th>
                     </tr>
                     </thead>
                     <tbody>

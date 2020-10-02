@@ -202,9 +202,9 @@ body {
   display: none;
 }
 .active-record-box.active .icon-active {
-  display: block;
+  display: inline;
 }
 .active-record-box.active .icon-disabled {
-  display: block;
+  display: none;
 }
 /*# sourceMappingURL=styles.css.map */
