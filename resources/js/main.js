@@ -81,9 +81,10 @@ jQuery(document).ready(function () {
     });*/
 
     jQuery(".active-record-box").click(function () {
-        var id = jQuery(this).attr("data-id");
+        var box = jQuery(this);
+        var id = jQuery(box).attr("data-id");
         var value = "Y";
-        if (jQuery(this).hasClass("active")) {
+        if (jQuery(box).hasClass("active")) {
             value = "N";
         }
         jQuery.ajax({
@@ -95,9 +96,9 @@ jQuery(document).ready(function () {
             },
             success: function (html) {
                 if (value == "Y") {
-                    jQuery(this).addClass("active");
+                    jQuery(box).addClass("active");
                 } else {
-                    jQuery(this).removeClass("active");
+                    jQuery(box).removeClass("active");
                 }
             }
         });
