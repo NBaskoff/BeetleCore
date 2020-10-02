@@ -92,6 +92,12 @@
                                 </td>
                             @endif
                             <td style="text-align: center;">
+                                @if (!empty($record->activeKey))
+                                    <div class="active-record-box @if ($record->getOriginal($record->activeKey) == "Y") active @endif" data-id="{{$recordId}}">
+                                        <i class="fas fa-eye icon-active"></i>
+                                        <i class="fas fa-eye-slash icon-disabled"></i>
+                                    </div>
+                                @endif
                                 <a href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "id"=>$id, "record"=>$recordId])}}">
                                     <i class="fas fa-edit"></i>
                                 </a>

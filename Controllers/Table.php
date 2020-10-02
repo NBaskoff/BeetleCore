@@ -98,4 +98,9 @@ class Table
 		//return redirect()->route("admin.back", "1");
 		return redirect(request("back"));
 	}
+
+    public function actionActive()
+    {
+        $this->model->active(request()->get("id"), request()->get("value"));
+	}
 }

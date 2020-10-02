@@ -99,3 +99,11 @@ body {background: #ecf0f5;}
 		}
 	}
 }
+
+.active-record-box {cursor: pointer;
+    .icon-active {display: none;}
+    &.active {
+        .icon-active {display: block;}
+        .icon-disabled {display: block;}
+    }
+}

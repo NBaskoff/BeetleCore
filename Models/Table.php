@@ -25,6 +25,11 @@ class Table extends Model
 	 * @var string поле для определания позиции
 	 */
 	public $positionKey = "";
+    /**
+     * @var string поле для определания активности
+     */
+    public $activeKey = "";
+
 	protected $fields = [];
 	protected $relations = [];
 	protected $links = [];
@@ -133,4 +138,11 @@ class Table extends Model
 		}
 		return $breadCrumb;
 	}
+
+    public function active($id, $value)
+    {
+        static::query()->find($id)->update([$this->activeKey => $value]);
+        return $value;
+    }
+
 }

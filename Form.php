@@ -129,6 +129,9 @@ class Form
             if (!empty($this->record->positionKey)) {
                 $save[$this->record->positionKey] = $this->record::query()->max($this->record->positionKey) + 1;
             }
+            if (!empty($this->record->activeKey)) {
+                $save[$this->record->activeKey] = "Y";
+            }
             if (!empty($parent)) {
                 $explodeParent = explode(".", $parent);
                 $parentModel = $this->record->{$explodeParent[1]}()->getRelated();
