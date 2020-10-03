@@ -87,7 +87,8 @@
                             @if (!empty($model->getLinks()))
                                 <td>
                                     @foreach($model->getLinks() as $kl=>$link)
-                                        <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}}({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a><br>
+                                        <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}}({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a>
+                                        <br>
                                     @endforeach
                                 </td>
                             @endif
@@ -99,11 +100,11 @@
                                     </span>
                                     &nbsp;&nbsp;
                                 @endif
-                                <a href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "id"=>$id, "record"=>$recordId])}}">
+                                <a href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 &nbsp;&nbsp;
-                                <a onclick="return confirm('Удалить запись?')" href="{{route(request()->route()->getName(), ["action" => "del", "parent"=>$parent, "id"=>$id, "record"=>$recordId])}}?back={{$_SERVER["REQUEST_URI"]}}">
+                                <a onclick="return confirm('Удалить запись?')" href="{{route(request()->route()->getName(), ["action" => "del", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
@@ -115,12 +116,11 @@
             <div class="row">
                 <div class="col-md-1">
                     <a class="btn btn-primary btn-block btn-sm"
-                       href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "id"=>$id])}}">
+                       href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "id"=>$id, "back"=>$_SERVER["REQUEST_URI"]])}}">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
                 <div class="col-md-11">
-
                     <nav>
                         <ul class="pagination justify-content-end">
                             {{ $records->appends(request()->all())->links() }}

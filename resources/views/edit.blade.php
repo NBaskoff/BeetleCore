@@ -5,21 +5,20 @@
 @section('css')@endsection
 @section('js')@endsection
 @section('content')
-
         <div class="card margin-top">
             <div class="card-header">
                 {{$model->modelName}} :: Добавление / Редактирование записи
             </div>
             <div class="card-body">
                 <form method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="count_try" value="{{($_POST["count_try"] ?? 0) + 1}}">
+                    <input type="hidden" name="system_count_try" value="{{request("system_count_try", 0) + 1}}">
                     {{csrf_field()}}
                     @foreach($html as $k=>$i)
                         {!! $i !!}
                     @endforeach
                     <div class="form-group row">
                         <div class="col-md-4">
-                            <a onclick="javascript:history.go(-{{($_POST["count_try"] ?? 0) + 1 }}); return false;"
+                            <a href="{{route("admin.back", ["count" => request("system_count_try", 0) + 1, "back" => request("back")])}}"
                                class="btn btn-back btn-block">Отмена</a>
                         </div>
                         <div class="col-md-8">
@@ -29,7 +28,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
 @endsection

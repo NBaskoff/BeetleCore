@@ -87,10 +87,12 @@
                 </li>--}}
             </ul>
             <div class="form-inline my-2 my-lg-0">
-            <span
-                style="margin-right: 10px;">Добрый день, {{request()->session()->get("admin")->getAttribute("name")}}.</span>
-                <a href="{{route("admin.exit")}}" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i>
-                    Выход</a>
+                <span style="margin-right: 10px;">
+                    Добрый день, {{request()->session()->get("admin")->getAttribute("name")}}.
+                </span>
+                <a href="{{route("admin.exit")}}" class="btn btn-primary">
+                    <i class="fas fa-sign-out-alt"></i> Выход
+                </a>
             </div>
         </div>
     </nav>
