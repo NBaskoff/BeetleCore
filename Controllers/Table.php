@@ -71,8 +71,7 @@ class Table
 			if ($form->valid(request()->toArray()) === true) {
 				$this->addEditBeforeSave($parent, $id, $record, $add);
 				$form->save(request()->toArray(), $parent, $id);
-				//return redirect()->route(request()->route()->getName(), ["action" => "show", "parent" => $parent, "id" => $id]);
-                return redirect()->route("admin.back", ["count" => request("system_count_try"), "back" => request("back")]);
+                return redirect(request("back"));
 			}
 			$html = $form->renderPost(request()->toArray());
 		} elseif ($add) {
@@ -96,7 +95,7 @@ class Table
 	public function actionDel($parent, $id, $record)
 	{
 		$this->model::query()->find($record)->del();
-        return redirect()->route("admin.back", ["count" => 0, "back" => request("back")]);
+        return redirect(request("back"));
 	}
 
     public function actionActive()

@@ -4,6 +4,7 @@ jQuery(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    
     var url = window.location.pathname;
     url = url.split('/');
     url = "/" + url[1] + "/" + url[2] + "/";
@@ -38,21 +39,22 @@ jQuery(document).ready(function () {
             });
         }
     });
+    
     jQuery("body").on("click", "a", function () {
-        var text = jQuery(this).attr("question");
+        var text = jQuery(this).attr("data-question");
         if (text != undefined) {
             return confirm(text);
         } else {
             return true;
         }
     });
-    /*jQuery(".btn-back").on("click", function () {
-        if (history.length > 1) {
-            history.go(-1);
-            return false;
-        }
-    });*/
 
+    jQuery("body").on("click", ".back-link", function () {
+        var href = jQuery(this).attr("href");
+        href = href + "#scroll="+jQuery(document).scrollTop();
+        window.location = href;
+        return false;
+    });    
 
     $('.tinymce').tinymce({
         language: "ru",

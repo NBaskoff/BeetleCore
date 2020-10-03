@@ -3,7 +3,9 @@
     {{$model->modelName}} :: Просмотр записей
 @endsection
 @section('css')@endsection
-@section('js')@endsection
+@section('js')
+    <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/show.js"></script>
+@endsection
 @section('content')
     <div class="card margin-top">
         <div class="card-header">
@@ -104,7 +106,7 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 &nbsp;&nbsp;
-                                <a onclick="return confirm('Удалить запись?')" href="{{route(request()->route()->getName(), ["action" => "del", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
+                                <a class="back-link" data-question="Удалить запись?" href="{{route(request()->route()->getName(), ["action" => "del", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>

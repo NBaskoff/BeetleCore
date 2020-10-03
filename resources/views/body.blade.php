@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fengyuanchen/cropperjs/dist/cropper.min.css" crossorigin="anonymous">
     {{--<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/harvesthq/chosen-package/chosen.min.css">--}}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/css/styles.css">
+    @yield('css')
     <title>@yield('title') :: BeetleCMS</title>
 </head>
 <body>
@@ -118,6 +119,8 @@
 <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/admin-field-images-box.js"></script>
 <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/field-relations.js"></script>
 <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/relation-table.js"></script>
+
+@yield('js')
 
 </body>
 </html>
