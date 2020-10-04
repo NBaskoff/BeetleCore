@@ -102,7 +102,7 @@
                                     </span>
                                     &nbsp;&nbsp;
                                 @endif
-                                <a href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
+                                <a class="back-link" href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 &nbsp;&nbsp;
@@ -117,7 +117,7 @@
             </div>
             <div class="row">
                 <div class="col-md-1">
-                    <a class="btn btn-primary btn-block btn-sm"
+                    <a class="btn btn-primary btn-block btn-sm back-link"
                        href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "id"=>$id, "back"=>$_SERVER["REQUEST_URI"]])}}">
                         <i class="fas fa-plus"></i>
                     </a>
