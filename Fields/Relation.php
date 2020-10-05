@@ -62,8 +62,10 @@ class Relation extends Basic
         } else {
             if (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
                 $value = $this->form->record->{$this->field}()->getQuery()->pluck("{$model->getTable()}.$primaryKey")->toArray();
-            } else {
+            } elseif (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\HasOne") {
                 $value = [$this->form->record->getAttribute($this->record->{$this->field}()->getLocalKeyName())];
+            } else  {
+                $value = [$this->form->record->getAttribute($this->record->{$this->field}()->getForeignKeyName())];
             }
         }
 
