@@ -43,7 +43,7 @@ jQuery(document).ready(function () {
             var name = jQuery(this).text();
             jQuery(".relation-ids", relationBox).append(
                 '<div class="relation-id" data-id="' + id + '">\n' +
-                '<input type="hidden" name="' + relationDataField + '[]" value="' + id + '">' +
+                '<input type="hidden" name="' + relationDataField + '[id][]" value="' + id + '">' +
                 '' + name + '\n' +
                 '<div class="close">\n' +
                 '<i class="fas fa-times-circle"></i>\n' +
