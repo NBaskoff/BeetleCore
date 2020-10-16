@@ -64,7 +64,7 @@ class Basic
 
     public function save($data)
     {
-		if (isset($data[$this->field])) {
+		if (array_key_exists($this->field, $data)) {
 			return [$this->field => trim($data[$this->field])];
 		} else {
 			return false;
