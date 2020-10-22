@@ -8,7 +8,7 @@
 
     <div class="card margin-top">
         <div class="card-header">
-            Настройки сайта
+            {{$model->modelName}}
         </div>
         <div class="card-body">
             @if ($save)

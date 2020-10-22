@@ -28,76 +28,74 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="{{route("admin.index")}}">BeetleCMS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarMain">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{route("admin.page", "show")}}">Страницы</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Каталог
-                        <!--Заказы и способы-->
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
-                        <a class="dropdown-item" href="{{route("admin.catalog", "show")}}">Каталог</a>
-                        <a class="dropdown-item" href="{{route("admin.catalog_items", "show")}}">Товары</a>
+<!-- Modal Images -->
+<div class="modal fade" id="modalCropper" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog {{--modal-xl--}} modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редактирование изображения</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="image">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="docs-buttons">
+                    <div class="btn-group">
+                        <div class="btn btn-primary zoom-in">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                        <div class="btn btn-primary zoom-out">
+                            <i class="fa fa-search-minus"></i>
+                        </div>
                     </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Пользователи
-                        <!--Заказы и способы-->
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
-                        <a class="dropdown-item" href="{{route("admin.user", "show")}}">Пользователи сайта</a>
-                        <a class="dropdown-item" href="{{route("admin.user_admin", "show")}}">Администраторы CRM</a>
+
+                    <div class="btn-group">
+                        <div class="btn btn-primary move-left">
+                            <i class="fa fa-arrow-left"></i>
+                        </div>
+                        <div class="btn btn-primary move-right">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                        <div class="btn btn-primary move-up">
+                            <i class="fa fa-arrow-up"></i>
+                        </div>
+                        <div class="btn btn-primary move-down">
+                            <i class="fa fa-arrow-down"></i>
+                        </div>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route("admin.slider", "show")}}">Слайдер</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Настройки
-                        <!--Заказы и способы-->
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
-                        <a class="dropdown-item" href="{{route("admin.settings", "show")}}">Настройки сайта</a>
-                        <a class="dropdown-item" href="{{route("admin.delivery", "show")}}">Способы доставки</a>
-                        <a class="dropdown-item" href="{{route("admin.payment", "show")}}">Способы оплаты</a>
+
+                    <div class="btn-group">
+                        <div class="btn btn-primary rotate-left">
+                            <i class="fa fa-undo-alt"></i>
+                        </div>
+                        <div class="btn btn-primary rotate-right">
+                            <i class="fa fa-redo-alt"></i>
+                        </div>
                     </div>
-                </li>
-                {{--<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Справочники
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    {{--<div class="btn-group">
+                        <div class="btn btn-primary ">
+                            <i class="fa fa-arrows-alt-h"></i>
+                        </div>
+                        <div class="btn btn-primary">
+                            <i class="fa fa-arrows-alt-v"></i>
+                        </div>
+                    </div>--}}
+                    <div class="btn btn-primary btn-block save">
+                        <i class="fa fa-save"></i> Сохранить
                     </div>
-                </li>--}}
-            </ul>
-            <div class="form-inline my-2 my-lg-0">
-                <span style="margin-right: 10px;">
-                    Добрый день, {{request()->session()->get("admin")->getAttribute("name")}}.
-                </span>
-                <a href="{{route("admin.exit")}}" class="btn btn-primary">
-                    <i class="fas fa-sign-out-alt"></i> Выход
-                </a>
+                </div>
             </div>
         </div>
-    </nav>
-    @yield('content')
+    </div>
+</div>
+<div class="container">
+    @include("menu")
+    @yield("content")
 </div>
 
 <script src="//cdn.jsdelivr.net/gh/jquery/jquery@3.5.0/dist/jquery.min.js"></script>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class Settings
 {
 	/* @var \BeetleCore\Model\Settings */
-	protected $model = \BeetleCore\Model\Settings::class;
+	protected $model = \BeetleCore\Models\Settings::class;
 
 	public function __invoke(Request $request)
 	{
@@ -34,6 +34,7 @@ class Settings
 		} else {
 			$html = $form->renderEdit($record);
 		}
-		return view("beetlecore::settings", compact("html", "save"));
+        $model = new $this->model;
+		return view("beetlecore::settings", compact("html", "save", "model"));
 	}
 }
