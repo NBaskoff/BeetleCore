@@ -94,7 +94,7 @@
     </div>
 </div>
 <div class="container">
-    @include("menu")
+    @include("beetlecore::menu")
     @yield("content")
 </div>
 

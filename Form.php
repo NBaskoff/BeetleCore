@@ -31,6 +31,17 @@ class Form
             }
     }
 
+    public function setFields($fields)
+    {
+        unset($this->fields);
+        if (!empty($fields))
+            foreach ($fields as $k => $i) {
+                $i["form"] = &$this;
+                $this->fields[$k] = new $i["type"]($k, $i, $this->record);
+            }
+        return $this;
+    }
+
     public function getTheme()
     {
         return $this->theme;

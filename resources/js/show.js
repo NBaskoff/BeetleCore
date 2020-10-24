@@ -3,6 +3,10 @@ jQuery(document).ready(function () {
         jQuery(document).scrollTop(getHashValue("scroll"));
         history.pushState("", document.title, window.location.pathname + window.location.search);
     }
+
+    jQuery(".active-table-checkbox").change(function () {
+        jQuery("#dataTable tbody input").prop("checked", jQuery(this).prop("checked"));
+    });
 });
 
 function getHashValue(key) {
