@@ -3,14 +3,12 @@
     <div class="col-md-8">
         <div class="admin-field-images-box" data-width="{{$class->width}}" data-height="{{$class->height}}" data-filed="{{$class->field}}">
             <div class="images-list-box">
-
                 <div class="image-box image-load" style="display: none">
                     <div class="image">
-                        <img src="/admin/i/6.gif" style="width: 70px;">
+                        <img src="{{$beetleCoreResourcesFolder}}/i/6.gif" style="width: 70px;">
                     </div>
                     <div class="name">Загрузка изображения</div>
                 </div>
-
                 @foreach($value as $info)
                     @include("beetlecore::fields.image_box_load")
                 @endforeach

@@ -4,7 +4,7 @@
 @endsection
 @section('css')@endsection
 @section('js')
-    <script src="//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.0/resources/js/show.js"></script>
+    <script src="{{$beetleCoreResourcesFolder}}/js/show.js"></script>
 @endsection
 @section('content')
     <div class="card margin-top">

@@ -70,14 +70,14 @@ body {background: #ecf0f5;}
 
 .admin-field-images-box {
     .images-list-box {display: flex; flex-wrap: wrap; margin: 0 -5px;
-        .image-box {position: relative; margin: 0 5px 5px 5px; width: 200px;
+        .image-box {position: relative; margin: 0 5px 5px 5px; width: 200px; cursor: move; background: #ffffff;
             .image {width: 100%; min-height: 60px; border: 1px solid #000000;
                 img { width: 100%;}
             }
             .name {width: 100%; text-align: center;}
             .del {position: absolute; right: 5px; top: 5px; cursor: pointer; background: #ffffff; border-radius: 100%; width: 24px; text-align: center;}
             .edit {position: absolute; right: 5px; top: 32px; cursor: pointer; background: #ffffff; border-radius: 100%; width: 24px; text-align: center;}
-
+            &.image-box-placeholder {border: 1px solid #fcefa1; background: #fbf9ee; min-height: 50px;}
         }
         .image-load {
             .image {width: 200px; height: 200px; display: flex; justify-content: center; align-items: center;}

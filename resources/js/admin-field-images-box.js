@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
     var imageUrl = window.location.pathname;
     imageUrl = imageUrl.split('/');
     imageUrl = "/" + imageUrl[1] + "/system/image";
-    
+
     var imagesBox;
     var imageWidth = 0;
     var imageHeight = 0;
@@ -134,6 +134,14 @@ jQuery(document).ready(function () {
             }
         });
     });
+    jQuery(".images-list-box").sortable({
+        placeholder: "image-box image-box-placeholder",
+        start: function( event, ui ) {
+            jQuery(".image-box-placeholder").css("height", jQuery(ui.item).height());
+        },
+        update: function( event, ui ) {
 
-
+        }
+    });
+    jQuery(".images-list-box").disableSelection();
 });

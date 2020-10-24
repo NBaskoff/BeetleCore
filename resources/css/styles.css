@@ -132,6 +132,8 @@ body {
   position: relative;
   margin: 0 5px 5px 5px;
   width: 200px;
+  cursor: move;
+  background: #ffffff;
 }
 .admin-field-images-box .images-list-box .image-box .image {
   width: 100%;
@@ -164,6 +166,11 @@ body {
   border-radius: 100%;
   width: 24px;
   text-align: center;
+}
+.admin-field-images-box .images-list-box .image-box.image-box-placeholder {
+  border: 1px solid #fcefa1;
+  background: #fbf9ee;
+  min-height: 50px;
 }
 .admin-field-images-box .images-list-box .image-load .image {
   width: 200px;
