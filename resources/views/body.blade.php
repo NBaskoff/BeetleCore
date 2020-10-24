@@ -115,8 +115,7 @@
 <script src="//cdn.jsdelivr.net/gh//fengyuanchen/jquery-cropper/dist/jquery-cropper.min.js"></script>
 
 <script src="{{$beetleCoreResourcesFolder}}/js/main.js"></script>
-{{--<script src="{{$beetleCoreResourcesFolder}}/js/admin-field-images-box.js"></script>--}}
-<script src="/js/admin-field-images-box.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/admin-field-images-box.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/field-relations.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-table.js"></script>
 
