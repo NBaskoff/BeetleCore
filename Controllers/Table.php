@@ -109,11 +109,11 @@ class Table
         if (empty(\request("id"))) {
             return redirect(request("back"));
         }
+        /**
+         * @var $record \BeetleCore\Models\Table
+         */
+        $record = new $this->model();
         if (\request("action") == "edit") {
-            /**
-             * @var $record \BeetleCore\Models\Table
-             */
-            $record = new $this->model();
             $form = new Form($record);
             if (request()->method() == "POST") {
                 $fields = $record->getFields();
