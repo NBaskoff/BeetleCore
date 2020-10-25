@@ -36,6 +36,8 @@ class Table extends Model
 	protected $linkSelf = "";
 	protected $guarded = []; //чтобы можно было заполнять поля
 
+    protected $loadKey = "img"; //Поле картинки для автозагрузки
+
 	public function getFields()
 	{
 		return $this->fields;
@@ -94,6 +96,11 @@ class Table extends Model
 	{
 		return $this->linkSelf;
 	}
+
+    public function getLoadKey()
+    {
+        return $this->loadKey;
+    }
 
 	public function del()
 	{

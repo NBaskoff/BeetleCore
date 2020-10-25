@@ -106,7 +106,7 @@ class Table
 
     public function actionBulk($parent, $id)
     {
-        if (empty(\request("id"))) {
+        if (empty(\request("records"))) {
             return redirect(request("back"));
         }
         /**
@@ -126,7 +126,7 @@ class Table
                 if ($form->valid(request()->toArray()) === true) {
                     //$this->addEditBeforeSave($parent, $id, $record, $add);
                     $save = $form->getSave(request()->toArray());
-                    $this->model::query()->whereIn($record->getKeyName(), \request("id"))->update($save);
+                    $this->model::query()->whereIn($record->getKeyName(), \request("records"))->update($save);
                     return redirect(request("back"));
                 }
                 $html = $form->renderPost(request()->toArray());
@@ -136,8 +136,38 @@ class Table
             $model = $this->model;
             return view("beetlecore::edit_bulk", compact("html", "model"));
         } elseif (\request("action") == "del") {
-            $this->model::query()->whereIn($record->getKeyName(), \request("id"))->delete();
+            $this->model::query()->whereIn($record->getKeyName(), \request("records", []))->delete();
             return redirect(request("back"));
         }
+    }
+
+    public function actionLoad($parent, $id)
+    {
+        /**
+         * @var $record \BeetleCore\Models\Table
+         */
+        $record = new $this->model();
+        $form = new Form($record);
+        $fields = $record->getFields();
+        $key = $record->getLoadKey();
+        $form->setFields(["images" => $fields[$key]]);
+        if (request()->method() == "POST") {
+            foreach (\request("images") as $k=>$i) {
+                $record = new $this->model();
+                $form = new Form($record);
+                $name = explode(".", json_decode($i)->name);
+                array_pop($name);
+                $name = implode(".", $name);
+                $save = [
+                    $key => [$i],
+                    $record->nameKey => $name
+                ];
+                $form->save($save, $parent, $id);
+            }
+            return redirect()->route(request()->route()->getName(), ["action" => "show", "parent" => $parent, "id" => $id]);
+        }
+        $html = $form->renderAdd();
+        $model = $this->model;
+        return view("beetlecore::load", compact("html", "model"));
     }
 }

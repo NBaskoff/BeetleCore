@@ -4,7 +4,7 @@ jQuery(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    
+
     var url = window.location.pathname;
     url = url.split('/');
     url = "/" + url[1] + "/" + url[2] + "/";
@@ -39,8 +39,8 @@ jQuery(document).ready(function () {
             });
         }
     });
-    
-    jQuery("body").on("click", "a", function () {
+
+    jQuery("body").on("click", "a, button", function () {
         var text = jQuery(this).attr("data-question");
         if (text != undefined) {
             return confirm(text);
@@ -54,7 +54,7 @@ jQuery(document).ready(function () {
         href = href + "#scroll="+jQuery(document).scrollTop();
         window.location = href;
         return false;
-    });    
+    });
 
     $('.tinymce').tinymce({
         language: "ru",

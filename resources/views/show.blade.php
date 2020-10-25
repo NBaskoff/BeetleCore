@@ -82,7 +82,7 @@
                             @endphp
                             <tr>
                                 <td style="text-align: center;">
-                                    <input type="checkbox" name="id[]" value="{{$recordId}}">
+                                    <input type="checkbox" name="records[]" value="{{$recordId}}">
                                 </td>
                                 @if (!empty($model->positionKey))
                                     <td style="text-align: center;">
