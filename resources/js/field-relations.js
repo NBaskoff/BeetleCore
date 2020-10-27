@@ -82,7 +82,7 @@ jQuery(document).ready(function () {
     jQuery(parentBox).on("click", ".pagination .page-item", function () {
         jQuery(".pagination .page-item", parentBox).removeClass("active");
         jQuery(this).addClass("active");
-        updateRelationTable(jQuery(this).text(), relationParent);
+        updateRelationTable(parseInt(jQuery(this).text()), relationParent);
         return false;
     });
 
@@ -137,6 +137,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery(parentBox).on("click", ".relation-next-level", function () {
+        relationParent = jQuery(this).attr("data-id");
         updateRelationTable(1, jQuery(this).attr("data-id"));
     });
 
