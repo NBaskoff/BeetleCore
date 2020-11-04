@@ -40,20 +40,19 @@ jQuery(document).ready(function () {
         }
     });
 
-    jQuery("body").on("click", "a, button", function () {
+    jQuery("body").on("click", "a, button, .back-link", function () {
         var text = jQuery(this).attr("data-question");
-        if (text != undefined) {
-            return confirm(text);
+        if (text == undefined || confirm(text)) {
+            if (jQuery(this).hasClass("back-link")) {
+                var href = jQuery(this).attr("href");
+                href = href + "#scroll="+jQuery(document).scrollTop();
+                window.location = href;
+            } else {
+                return true;
+            }
         } else {
-            return true;
+            return false;
         }
-    });
-
-    jQuery("body").on("click", ".back-link", function () {
-        var href = jQuery(this).attr("href");
-        href = href + "#scroll="+jQuery(document).scrollTop();
-        window.location = href;
-        return false;
     });
 
     $('.tinymce').tinymce({
