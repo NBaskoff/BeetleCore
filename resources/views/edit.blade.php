@@ -1,9 +1,7 @@
 @extends("beetlecore::body")
-@section('title')
+@push('title')
     {{$model->modelName}} :: Добавление / Редактирование записи
-@endsection
-@section('css')@endsection
-@section('js')@endsection
+@endpush
 @section('content')
     <div class="card margin-top">
         <div class="card-header">

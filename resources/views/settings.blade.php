@@ -1,9 +1,7 @@
 @extends("beetlecore::body")
-@section('title')
+@push('title')
     Настройки сайта
-@endsection
-@section('css')@endsection
-@section('js')@endsection
+@endpush
 @section('content')
 
     <div class="card margin-top">

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Relation extends Basic
 {
     protected static $search = false;
+    protected $ignore = [];
 
     public function save($data)
     {
@@ -64,7 +65,7 @@ class Relation extends Basic
                 $value = $this->form->record->{$this->field}()->getQuery()->pluck("{$model->getTable()}.$primaryKey")->toArray();
             } elseif (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\HasOne") {
                 $value = [$this->form->record->getAttribute($this->record->{$this->field}()->getLocalKeyName())];
-            } else  {
+            } else {
                 $value = [$this->form->record->getAttribute($this->record->{$this->field}()->getForeignKeyName())];
             }
         }
@@ -89,7 +90,7 @@ class Relation extends Basic
                 $ignoreId = [$this->form->record->getAttribute($primaryKey)];
             }
         }
-        $ignoreId = implode(",", $ignoreId);
+        $ignoreId = implode(",", array_merge($ignoreId, $this->ignore));
         $class = $this;
         return view("beetlecore::fields." . $this->shotName(), compact("action", "ids", "class", "primaryKey", "nameKey", "multiple", "model", "ignoreId"))->toHtml();
     }

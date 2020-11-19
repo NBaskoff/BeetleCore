@@ -1,11 +1,10 @@
 @extends("beetlecore::body")
-@section('title')
+@push('title')
     {{$model->modelName}} :: Просмотр записей
-@endsection
-@section('css')@endsection
-@section('js')
+@endpush
+@push('js')
     <script src="{{$beetleCoreResourcesFolder}}/js/show.js"></script>
-@endsection
+@endpush
 @section('content')
     <div class="card margin-top">
         <div class="card-header">
@@ -97,7 +96,7 @@
                                 @if (!empty($model->getLinks()))
                                     <td>
                                         @foreach($model->getLinks() as $kl=>$link)
-                                            <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}}({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a>
+                                            <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}} ({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a>
                                             <br>
                                         @endforeach
                                     </td>

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fengyuanchen/cropperjs/dist/cropper.min.css" crossorigin="anonymous">
     {{--<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/harvesthq/chosen-package/chosen.min.css">--}}
     <link rel="stylesheet" href="{{$beetleCoreResourcesFolder}}/css/styles.css">
-    @yield('css')
-    <title>@yield('title') :: BeetleCMS</title>
+    @stack('css')
+    <title>@stack('title') :: BeetleCMS</title>
 </head>
 <body>
 <!-- Modal Relation -->
@@ -119,7 +119,7 @@
 <script src="{{$beetleCoreResourcesFolder}}/js/field-relations.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-table.js"></script>
 
-@yield('js')
+@stack('js')
 
 </body>
 </html>

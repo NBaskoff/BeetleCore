@@ -1,11 +1,10 @@
 @extends("beetlecore::body")
-@section('title')
+@push('title')
     {{$model->modelName}} :: Редактирование записей
-@endsection
-@section('css')@endsection
-@section('js')
+@endpush
+@push('js')
     <script src="{{$beetleCoreResourcesFolder}}/js/edit_bulk.js"></script>
-@endsection
+@endpush
 @section('content')
     <div class="card margin-top">
         <div class="card-header">
