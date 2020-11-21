@@ -20,10 +20,21 @@ class Form
     public $record;
     protected $theme = "fields";
 
-    public function __construct(\BeetleCore\Models\Table $record, $theme = "fields")
+    /**
+     * Form constructor.
+     * @param Models\Table $record Запись
+     * @param string $theme Тема (папка в views)
+     * @param array $fields Список полей
+     */
+    public function __construct(\BeetleCore\Models\Table $record, $theme = null, $fields = null)
     {
         $this->record = $record;
-        $fields = $record->getFields();
+        if ($fields === null) {
+            $theme = "fields";
+        }
+        if ($fields === null) {
+            $fields = $record->getFields();
+        }
         if (!empty($fields))
             foreach ($fields as $k => $i) {
                 $i["form"] = &$this;
@@ -85,7 +96,6 @@ class Form
                 if ($i::isSearch()) {
                     $html[$k] = $i->find($data);
                 }
-
             }
         return $html;
     }

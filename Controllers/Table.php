@@ -124,9 +124,13 @@ class Table
                 }
                 $form = $form->setFields($fields);
                 if ($form->valid(request()->toArray()) === true) {
-                    //$this->addEditBeforeSave($parent, $id, $record, $add);
-                    $save = $form->getSave(request()->toArray());
-                    $this->model::query()->whereIn($record->getKeyName(), \request("records"))->update($save);
+                    foreach (request("records") as $k=>$i) {
+                        $record = $this->model::query()->find($i);
+                        $form = new Form($record);
+                        $form = $form->setFields($fields);
+                        $this->addEditBeforeSave($parent, $id, $record, $add);
+                        $form->save(request()->toArray(), $parent, $id);
+                    }
                     return redirect(request("back"));
                 }
                 $html = $form->renderPost(request()->toArray());

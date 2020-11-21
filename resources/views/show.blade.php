@@ -24,7 +24,6 @@
                         {{$model->modelName}} :: Просмотр записей
                     </div>
                 @endif
-
                 <div class="col-md-1">
                     <a class="btn btn-primary btn-block btn-sm"
                        href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "id"=>$id])}}">
@@ -44,10 +43,7 @@
                     <div class="col-md-4 col-xl-2">
                         <div class="form-group">
                             <label class="col-form-label">&nbsp;</label>
-                            <button type="submit" name="find" value="yes"
-                                    class="btn btn-primary btn-block startFind">
-                                Поиск
-                            </button>
+                            <button type="submit" name="find" value="yes" class="btn btn-primary btn-block startFind">Поиск</button>
                         </div>
                     </div>
                 </div>

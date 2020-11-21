@@ -10,13 +10,18 @@ use Intervention\Image\ImageManagerStatic;
 
 class Relation
 {
-	protected $namespace = "App\\Admin\\";
-	
+    protected $namespace = "App\\Admin\\";
+
     public function form($model)
     {
         $model = $this->namespace . $model;
+        /** @var $model Table */
         $model = new $model;
-        $form = new Form(new $model);
+        $fields = $model->getFields();
+        if (!empty($model->getLinkSelf())) {
+            unset($fields[explode(".", $model->getLinkSelf())[1]]);
+        }
+        $form = new Form(new $model, null, $fields);
         $html = $form->renderFind([]);
         $ids = \request()->get("ids", []);
         if (!empty($ids)) {
@@ -36,7 +41,7 @@ class Relation
 
     public function table($model)
     {
-		/** @var $model Table */
+        /** @var $model Table */
         $model = $this->namespace . $model;
         $model = new $model;
         $ids = \request()->get("ids", []);
