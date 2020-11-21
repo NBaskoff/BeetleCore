@@ -114,9 +114,9 @@ class Table
          */
         $record = new $this->model();
         if (\request("action") == "edit") {
-            $form = new Form($record);
+            $fields = $record->getFields();
+            $form = new Form($record, null, $fields);
             if (request()->method() == "POST") {
-                $fields = $record->getFields();
                 foreach ($fields as $k => $i) {
                     if (empty(\request("system_replace")[$k])) {
                         unset($fields[$k]);
@@ -128,7 +128,7 @@ class Table
                         $record = $this->model::query()->find($i);
                         $form = new Form($record);
                         $form = $form->setFields($fields);
-                        $this->addEditBeforeSave($parent, $id, $record, $add);
+                        $this->addEditBeforeSave($parent, $id, $record, false);
                         $form->save(request()->toArray(), $parent, $id);
                     }
                     return redirect(request("back"));
@@ -138,7 +138,7 @@ class Table
                 $html = $form->renderAdd();
             }
             $model = $this->model;
-            return view("beetlecore::edit_bulk", compact("html", "model"));
+            return view("beetlecore::edit_bulk", compact("html", "model", "fields"));
         } elseif (\request("action") == "del") {
             $this->model::query()->whereIn($record->getKeyName(), \request("records", []))->delete();
             return redirect(request("back"));
@@ -154,18 +154,20 @@ class Table
         $form = new Form($record);
         $fields = $record->getFields();
         $key = $record->getLoadKey();
-        $form->setFields(["images" => $fields[$key]]);
+        $name = $record->nameKey;
+        $form->setFields([
+            "name" => $fields[$name],
+            "images" => $fields[$key],
+        ]);
         if (request()->method() == "POST") {
             foreach (\request("images") as $k=>$i) {
                 $record = new $this->model();
                 $form = new Form($record);
-                $name = explode(".", json_decode($i)->name);
-                array_pop($name);
-                $name = implode(".", $name);
                 $save = [
                     $key => [$i],
-                    $record->nameKey => $name
+                    $name => str_replace("№", $k+1, \request("name"))
                 ];
+                $this->addEditBeforeSave($parent, $id, $record, true);
                 $form->save($save, $parent, $id);
             }
             return redirect()->route(request()->route()->getName(), ["action" => "show", "parent" => $parent, "id" => $id]);

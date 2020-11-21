@@ -18,7 +18,7 @@
                     <div class="form-group row bulk-record-box">
                         <div class="col-md-3">
                             <label class="col-form-label">
-                                <input type="checkbox" name="system_replace[{{$k}}]" value="Y" class="bulk-record-checkbox"> Применить ко всем записям
+                                <input type="checkbox" name="system_replace[{{$k}}]" value="Y" class="bulk-record-checkbox"> {{$fields[$k]["name"]}}<br>Применить ко всем записям
                             </label>
                         </div>
                         <div class="col-md-9 bulk-record-value">
