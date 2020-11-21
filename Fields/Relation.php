@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Relation extends Basic
 {
-    protected static $search = false;
+    protected static $search = true;
     protected $ignore = [];
 
     public function save($data)
@@ -36,6 +36,13 @@ class Relation extends Basic
 
     public function show($records)
     {
+        foreach ($records as $k=>$i) {
+            if (!empty($i[$this->field])) {
+                $nameKey = $i->{$this->field}()->getRelated()->nameKey;
+                $value = $i->{$this->field}()->getQuery()->pluck($nameKey)->toArray();
+                $records[$k][$this->field] = implode(", ", $value);
+            }
+        }
         return $records;
     }
 
@@ -62,7 +69,7 @@ class Relation extends Basic
             }
         } else {
             if (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
-                $value = $this->form->record->{$this->field}()->getQuery()->pluck("{$model->getTable()}.$primaryKey")->toArray();
+                $value = $this->form->record->{$this->field}()->getQuery()->pluck($primaryKey)->toArray();
             } elseif (get_class($this->form->record->{$this->field}()) == "Illuminate\Database\Eloquent\Relations\HasOne") {
                 $value = [$this->form->record->getAttribute($this->record->{$this->field}()->getLocalKeyName())];
             } else {
