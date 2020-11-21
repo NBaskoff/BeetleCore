@@ -47,7 +47,7 @@ jQuery(document).ready(function () {
                 var href = jQuery(this).attr("href");
                 href = href + "#scroll="+jQuery(document).scrollTop();
                 window.location = href;
-				return false;
+                return false;
             } else {
                 return true;
             }
