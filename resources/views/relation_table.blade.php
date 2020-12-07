@@ -47,8 +47,11 @@
                     @php
                         $kl = $model->getLinkSelf();
                         $link =  $model->getLinks()[$kl];
+						$count = $record->{explode(".", $kl)[0]}()->getQuery()->count();
                     @endphp
-                    <span class="relation-next-level" data-id="{{$recordId}}">{{$link[1]}} ({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</span>
+					@if ($count > 0)
+						<span class="relation-next-level" data-id="{{$recordId}}">{{$link[1]}} ({{$count}})</span>
+					@endif
                 </td>
             @endif
         </tr>
@@ -67,7 +70,7 @@
             <li class="page-item @if($i ==  $records->currentPage()) active @endif">
                 <a class="page-link" href="#">{{$i}}</a>
             </li>
-    @endfor
+		@endfor
     <!--<li class="page-item">
             <a class="page-link" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
