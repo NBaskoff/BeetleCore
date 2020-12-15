@@ -10,7 +10,7 @@ use Intervention\Image\ImageManagerStatic;
 
 class Relation
 {
-    protected $namespace = "App\\Admin\\";
+    protected $namespace = "App\\BeetleCMS\\";
 
     public function form($model)
     {
