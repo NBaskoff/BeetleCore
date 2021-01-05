@@ -102,7 +102,6 @@
 
 <script src="{{$beetleCoreResourcesFolder}}/js/urls.js"></script>
 
-<script src="{{$beetleCoreResourcesFolder}}/js/main.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/field-images-box.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/field-relations.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-table.js"></script>
@@ -111,6 +110,7 @@
 <script src="{{$beetleCoreResourcesFolder}}/js/start-form.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/ajax-form.js"></script>
 
+<script src="{{$beetleCoreResourcesFolder}}/js/main.js"></script>
 @stack('js')
 
 </body>

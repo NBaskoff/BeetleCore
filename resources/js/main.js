@@ -28,6 +28,8 @@ jQuery(document).ready(function () {
         disable_search_threshold: 1
     });*/
 
+    jQuery(".ajax-form").ajaxForm();
+
 });
 
 function getHashValue(key) {
