@@ -125,7 +125,11 @@ class Basic
     public function createFind(Builder $db, $data)
     {
         if (!empty($data[$this->field])) {
-            $db = $db->where($this->field, 'like', '%' . $data[$this->field] . '%');
+            if (env("DB_CONNECTION") == "pgsql") {
+                $db = $db->where($this->field, 'ILIKE', '%' . $data[$this->field] . '%');
+            } else {
+                $db = $db->where($this->field, 'LIKE', '%' . $data[$this->field] . '%');
+            }
         }
         return $db;
     }

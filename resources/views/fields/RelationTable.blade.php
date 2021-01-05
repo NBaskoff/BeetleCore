@@ -44,22 +44,22 @@
                             </div>
                         @endif
                     @else
-                        <div class="relation-form-box">
+                        @php
+                            $multiple = false;
+                              if (get_class($model->{$k}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
+                                  $multiple = true;
+                              }
+                        @endphp
+                        <div class="relation-form-box" data-ignore-id="" data-multiple="{{$multiple}}" data-field="{{$class->field}}[|line|][{{$k}}]" data-model="{{get_class($i)}}" data-link-self="{{$i->getLinkSelf()}}" data-action="{{$action}}">
                             <div class="relation-ids">
                                 <div class="relation-id">
                                     {{--<input type="hidden" name="{{$class->field}}[|line|][{{$k}}][id][]" value="0">
                                     <input type="hidden" name="{{$class->field}}[|line|][{{$k}}][id][]" value="0">--}}
                                 </div>
                             </div>
-                            @if (get_class($model->{$k}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany")
-                                <div class="relation-add-edit" data-multiple="true" data-field="{{$class->field}}[|line|][{{$k}}]" data-model="{{$i->shotName()}}">
-                                    <i class="fas fa-edit"></i>
-                                </div>
-                            @else
-                                <div class="relation-add-edit" data-multiple="false" data-field="{{$class->field}}[|line|][{{$k}}]" data-model="{{$i->shotName()}}">
-                                    <i class="fas fa-edit"></i>
-                                </div>
-                            @endif
+                            <div class="relation-add-edit">
+                                <i class="fas fa-edit"></i>
+                            </div>
                         </div>
                     @endif
                 </td>
@@ -101,9 +101,15 @@
                                 </div>
                             @endif
                         @else
-                            <div class="relation-form-box">
+                            @php
+                                $multiple = false;
+                                  if (get_class($i->{$mk}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany") {
+                                      $multiple = true;
+                                  }
+                            @endphp
+                            <div class="relation-form-box" data-ignore-id="" data-multiple="{{$multiple}}" data-field="{{$class->field}}[{{$k}}][{{$mk}}]" data-model="{{get_class($mi)}}" data-link-self="{{$model->getLinkSelf()}}" data-action="{{$action}}">
                                 <div class="relation-ids">
-                                    @if (get_class($i->{$mk}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany")
+                                    @if ($multiple)
                                         @foreach($i->{$mk} as $item)
                                             <div class="relation-id" data-id="{{$item[$mi->getKeyName()]}}">
                                                 <input type="hidden" name="{{$class->field}}[{{$k}}][{{$mk}}][id][]" value="{{$item[$mi->getKeyName()]}}">
@@ -125,16 +131,9 @@
                                         </div>
                                     @endif
                                 </div>
-
-                                @if (get_class($model->{$mk}()) == "Illuminate\Database\Eloquent\Relations\BelongsToMany")
-                                    <div class="relation-add-edit" data-multiple=true data-field="{{$class->field}}[{{$k}}][{{$mk}}]" data-model="{{$mi->shotName()}}">
-                                        <i class="fas fa-edit"></i>
-                                    </div>
-                                @else
-                                    <div class="relation-add-edit" data-multiple=false data-field="{{$class->field}}[{{$k}}][{{$mk}}]" data-model="{{$mi->shotName()}}">
-                                        <i class="fas fa-edit"></i>
-                                    </div>
-                                @endif
+                                <div class="relation-add-edit">
+                                    <i class="fas fa-edit"></i>
+                                </div>
                             </div>
                         @endif
                     </td>
@@ -147,4 +146,11 @@
     <div class="btn btn-primary relation-table-add" style="margin-right: 15px;">Добавить строку</div>
     <div class="btn btn-primary relation-table-copy" style="margin-right: 15px;">Копировать выбранные</div>
     <div class="btn btn-primary relation-table-del">Удалить выбранные</div>
+
+    <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+        @foreach($class->errors as $k=>$i)
+            {{$i}}<br>
+        @endforeach
+    </div>
+
 </div>

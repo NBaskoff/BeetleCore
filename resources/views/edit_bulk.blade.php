@@ -3,7 +3,7 @@
     {{$model->modelName}} :: Редактирование записей
 @endpush
 @push('js')
-    <script src="{{$beetleCoreResourcesFolder}}/js/edit_bulk.js"></script>
+    <script src="{{$beetleCoreResourcesFolder}}/js/edit-bulk.js"></script>
 @endpush
 @section('content')
     <div class="card margin-top">
@@ -11,7 +11,7 @@
             {{$model->modelName}} :: Редактирование записей
         </div>
         <div class="card-body">
-            <form method="POST" enctype="multipart/form-data">
+            <form id="bulk-form" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="system_count_try" value="{{request("system_count_try", 0) + 1}}">
                 {{csrf_field()}}
                 @foreach($html as $k=>$i)

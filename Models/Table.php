@@ -154,7 +154,7 @@ class Table extends Model
 
     /**
      * Добавляет к запросу проверку на активность и выстраивает по позиции
-     * @param string $active Значение поля активности (Y, N)
+     * @param string $active Значение поля активности (Y, N, 1, 0)
      * @param string $order Сортировка по позиции (asc, desc)
      * @return \Illuminate\Database\Eloquent\Builder
      */

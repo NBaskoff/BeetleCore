@@ -14,23 +14,10 @@
     <title>@stack('title') :: BeetleCMS</title>
 </head>
 <body>
-<!-- Modal Relation -->
-<div class="modal fade" id="modalRelation" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <div class="btn btn-primary relation-save">Сохранить</div>
-                <div class="btn btn-secondary" data-dismiss="modal">Отмена</div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="btn btn-primary modal-open">Открыть 1</div>--}}
 <!-- Modal Images -->
-<div class="modal fade" id="modalCropper" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog {{--modal-xl--}} modal-lg modal-dialog-centered" role="document">
+<div class="modal fade" id="modalCropper" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 999999;">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Редактирование изображения</h5>
@@ -93,31 +80,36 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container {{--container-fluid--}}">
     @include("beetlecore::menu")
     @yield("content")
 </div>
 
-<script src="//cdn.jsdelivr.net/gh/jquery/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/jquery/jquery/dist/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="{{$beetleCoreResourcesFolder}}/tinymce/tinymce.min.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/tinymce/jquery.tinymce.min.js"></script>
-<script src="{{$beetleCoreResourcesFolder}}/tinymce/tinymcego.js"></script>
 
 <script src="{{$beetleCoreResourcesFolder}}/js/jquery.tablednd.0.5.js"></script>
 
 {{--<script src="//cdn.jsdelivr.net/gh/harvesthq/chosen-package/chosen.jquery.min.js"></script>--}}
 
 <script src="//cdn.jsdelivr.net/gh/fengyuanchen/cropperjs/dist/cropper.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh//fengyuanchen/jquery-cropper/dist/jquery-cropper.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/fengyuanchen/jquery-cropper/dist/jquery-cropper.min.js"></script>
+
+<script src="{{$beetleCoreResourcesFolder}}/js/urls.js"></script>
 
 <script src="{{$beetleCoreResourcesFolder}}/js/main.js"></script>
-<script src="{{$beetleCoreResourcesFolder}}/js/admin-field-images-box.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/field-images-box.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/field-relations.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-table.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/jquery-form/form/dist/jquery.form.min.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/start-form.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/ajax-form.js"></script>
 
 @stack('js')
 

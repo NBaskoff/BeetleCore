@@ -7,13 +7,11 @@
 				<option value="{{$k}}" @if($k == $value) selected @endif>{{$i}}</option>
 			@endforeach
 		</select>
-		@if ($class->errors)
-			<div class="invalid-feedback">
-				@foreach($class->errors as $k=>$i)
-					{{$i}}<br>
-				@endforeach
-			</div>
-		@endif
+        <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+            @foreach($class->errors as $k=>$i)
+                {{$i}}<br>
+            @endforeach
+        </div>
 	</div>
 @else
 	<div class="form-group row">
@@ -25,13 +23,11 @@
 					<option value="{{$k}}" @if($k == $value) selected @endif>{{$i}}</option>
 				@endforeach
 			</select>
-			@if ($class->errors)
-				<div class="invalid-feedback">
-					@foreach($class->errors as $k=>$i)
-						{{$i}}<br>
-					@endforeach
-				</div>
-			@endif
+            <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+                @foreach($class->errors as $k=>$i)
+                    {{$i}}<br>
+                @endforeach
+            </div>
 		</div>
 	</div>
 @endif

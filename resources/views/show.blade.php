@@ -25,15 +25,14 @@
                     </div>
                 @endif
                 <div class="col-md-1">
-                    <a class="btn btn-primary btn-block btn-sm"
-                       href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "id"=>$id])}}">
+                    <a class="btn btn-primary btn-block btn-sm back-link" href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "parent_id"=>$id, "back"=>$_SERVER["REQUEST_URI"]])}}">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <form method="get">
+            <form method="get" id="find-form">
                 <div class="row">
                     @foreach($html as $k=>$i)
                         <div class="col-md-4 col-xl-2">
@@ -92,7 +91,7 @@
                                 @if (!empty($model->getLinks()))
                                     <td>
                                         @foreach($model->getLinks() as $kl=>$link)
-                                            <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "id"=>$recordId])}}">{{$link[1]}} ({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a>
+                                            <a href="{{route($link[0], ["action" => "show", "parent"=>$kl, "parent_id"=>$recordId])}}">{{$link[1]}} ({{$record->{explode(".", $kl)[0]}()->getQuery()->count()}})</a>
                                             <br>
                                         @endforeach
                                     </td>
@@ -105,11 +104,11 @@
                                     </span>
                                         &nbsp;&nbsp;
                                     @endif
-                                    <a class="back-link" href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
+                                    <a class="back-link" href="{{route(request()->route()->getName(), ["action" => "edit", "parent"=>$parent, "parent_id"=>$id, "record_id"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     &nbsp;&nbsp;
-                                    <a class="back-link" data-question="Удалить запись?" href="{{route(request()->route()->getName(), ["action" => "del", "parent"=>$parent, "id"=>$id, "record"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
+                                    <a class="back-link" data-question="Удалить запись?" href="{{route(request()->route()->getName(), ["action" => "del", "parent"=>$parent, "parent_id"=>$id, "record_id"=>$recordId, "back"=>$_SERVER["REQUEST_URI"]])}}">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -120,7 +119,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-1">
-                        <a class="btn btn-primary btn-block btn-sm back-link" href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "id"=>$id, "back"=>$_SERVER["REQUEST_URI"]])}}"><i class="fas fa-plus"></i></a>
+                        <a class="btn btn-primary btn-block btn-sm back-link" href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "parent_id"=>$id, "back"=>$_SERVER["REQUEST_URI"]])}}"><i class="fas fa-plus"></i></a>
                     </div>
                     <div class="col-md-1">
                         <button type="submit" name="action" value="edit" class="btn btn-primary btn-block btn-sm">

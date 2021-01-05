@@ -153,17 +153,13 @@ class Form
             if (!empty($this->record->activeKey)) {
                 $save[$this->record->activeKey] = "Y";
             }
-            if (!empty($parent)) {
+            if (!empty($parent) AND !empty($id)) {
                 $explodeParent = explode(".", $parent);
                 $parentModel = $this->record->{$explodeParent[1]}()->getRelated();
-                $parentModel::find($id)->{$explodeParent[0]}()->create($save);
-            } else {
-                $this->record->fill($save)->save();
+                $this->record = $parentModel::find($id)->{$explodeParent[0]}()->create($save);
             }
-        } else {
-            $this->record->fill($save)->save();
         }
-
+        $this->record->fill($save)->save();
         if (!empty($this->fields))
             foreach ($this->fields as $k => $i) {
                 $i->afterSave($data);

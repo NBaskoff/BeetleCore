@@ -6,13 +6,11 @@
                 <input type="checkbox" name="{{$class->field}}_edit" value="Y"> Изменить пароль
             </label>
             <input name="{{$class->field}}" type="text" class="form-control @if ($class->errors) is-invalid @endif" value="" placeholder="Новый пароль">
-            @if ($class->errors)
-                <div class="invalid-feedback">
-                    @foreach($class->errors as $k=>$i)
-                        {{$i}}<br>
-                    @endforeach
-                </div>
-            @endif
+            <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+                @foreach($class->errors as $k=>$i)
+                    {{$i}}<br>
+                @endforeach
+            </div>
         </div>
     </div>
 

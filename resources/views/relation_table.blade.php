@@ -12,7 +12,7 @@
         </ol>
     </nav>
 @endif
-<table class="table table-striped table-hover table-bordered table-sm" id="relationTable">
+<table class="table table-striped table-hover table-bordered table-sm table-relation">
     <thead class="thead-color">
     <tr>
         <th width="50px"></th>

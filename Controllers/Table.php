@@ -27,7 +27,6 @@ class Table
         }
     }
 
-
     public function actionShow($parent, $id)
     {
         $fields = $this->model->getShowFields();
@@ -44,49 +43,24 @@ class Table
         return view("beetlecore::show", compact("fields", "records", "model", "parent", "id", "html"));
     }
 
-    public function actionAdd($parent, $id, $record)
+    public function actionAdd($parent, $parent_id)
     {
-        return $this->addEdit($parent, $id, null, true);
+        return $this->addEdit($parent, $parent_id, 0);
     }
 
-    public function actionEdit($parent, $id, $record)
+    public function actionEdit($parent, $parent_id, $record_id)
     {
-        return $this->addEdit($parent, $id, $record, false);
+        return $this->addEdit($parent, $parent_id, $record_id);
     }
 
-    protected function addEdit($parent, $id, $record, $add)
+    protected function addEdit($parent, $parent_id, $record_id)
     {
-        if (!empty($record)) {
-            $record = $this->model::query()->find($record);
-        } else {
-            if (!empty($parent)) {
-                $filed = explode(".", $parent)[1];
-                $record = new $this->model([$this->model->{$filed}()->getForeignKeyName() => $id]);
-            } else {
-                $record = new $this->model();
-            }
-        }
-        $form = new Form($record);
-        if (request()->method() == "POST") {
-            if ($form->valid(request()->toArray()) === true) {
-                $this->addEditBeforeSave($parent, $id, $record, $add);
-                $form->save(request()->toArray(), $parent, $id);
-                return redirect(request("back"));
-            }
-            $html = $form->renderPost(request()->toArray());
-        } elseif ($add) {
-            $html = $form->renderAdd();
-        } else {
-            $html = $form->renderEdit($record);
-        }
         $model = $this->model;
-        return view("beetlecore::edit", compact("html", "model"));
+        $modelName = $this->modelName;
+        $back = request("back");
+        return view("beetlecore::edit", compact("parent", "parent_id", "record_id", "model", "modelName", "back"));
     }
 
-    protected function addEditBeforeSave($parent, $id, $record, $add)
-    {
-
-    }
 
     public function actionDragAndDrop()
     {
@@ -128,7 +102,7 @@ class Table
                         $record = $this->model::query()->find($i);
                         $form = new Form($record);
                         $form = $form->setFields($fields);
-                        $this->addEditBeforeSave($parent, $id, $record, false);
+                        //$this->addEditBeforeSave($parent, $id, $record);
                         $form->save(request()->toArray(), $parent, $id);
                     }
                     return redirect(request("back"));
@@ -167,7 +141,7 @@ class Table
                     $key => [$i],
                     $name => str_replace("№", $k+1, \request("name"))
                 ];
-                $this->addEditBeforeSave($parent, $id, $record, true);
+                //$this->addEditBeforeSave($parent, $id, $record);
                 $form->save($save, $parent, $id);
             }
             return redirect()->route(request()->route()->getName(), ["action" => "show", "parent" => $parent, "id" => $id]);

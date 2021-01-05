@@ -8,7 +8,6 @@
             var multiple = 0;
             var relationBox;
             var dialog;
-
             relationBox = box;
             dataField = jQuery(relationBox).attr("data-field");
             model = jQuery(relationBox).attr("data-model");
@@ -125,10 +124,11 @@
                             jQuery(".relation-id", relationBox).remove();
                             jQuery(".relation-box .relation-id", dialog).each(function () {
                                 var id = jQuery(this).attr("data-id");
-                                var name = jQuery(this).text();
+                                var name = jQuery(this).text().trim();
                                 jQuery(".relation-ids", relationBox).append(
                                     '<div class="relation-id" data-id="' + id + '">\n' +
                                     '<input type="hidden" name="' + dataField + '[id][]" value="' + id + '">' +
+                                    '<input type="hidden" name="' + dataField + '[name][]" value="' + name + '">' +
                                     '' + name + '\n' +
                                     '<div class="close">\n' +
                                     '<i class="fas fa-times-circle"></i>\n' +
@@ -136,16 +136,68 @@
                                     '</div>'
                                 );
                             });
+
+                            /*if (jQuery(relationBox).parents(".relation-table").length > 0) {
+                                var box = jQuery(relationBox).parents(".relation-table").eq(0);
+                                var line = parseInt(jQuery(box).attr("data-lines"));
+                                var tr = jQuery(relationBox).parents("tr").eq(0);
+                                jQuery(".relation-box .relation-id", dialog).each(function () {
+                                    jQuery(".relation-id", relationBox).remove();
+                                    line = line + 1;
+                                    var input = jQuery(tr).find(".relation-row-select");
+                                    var id = jQuery(this).attr("data-id");
+                                    var name = jQuery(this).text();
+                                    jQuery(".relation-ids", relationBox).append(
+                                        '<div class="relation-id" data-id="' + id + '">\n' +
+                                        '<input type="hidden" name="' + dataField + '[id][]" value="' + id + '">' +
+                                        '<input type="hidden" name="' + dataField + '[name][]" value="' + name + '">' +
+                                        '' + name + '\n' +
+                                        '<div class="close">\n' +
+                                        '<i class="fas fa-times-circle"></i>\n' +
+                                        '</div>\n' +
+                                        '</div>'
+                                    );
+                                    var to = jQuery(box).attr("data-replace-copy");
+                                    to = to.split("|line|").join(line);
+                                    html = jQuery(tr).html();
+                                    html = html.split(input.attr("data-replace-copy")).join(to);
+                                    var trNew =jQuery("<tr>" + html + "</tr>");
+                                    jQuery(tr).after(trNew);
+                                    jQuery(box).find("table tbody").find("input[name='" + to + "[id]']").val("new");
+                                    startForm(trNew);
+                                });
+                                jQuery(tr).remove();
+                                jQuery(box).attr("data-lines", line);
+                            } else {
+                                jQuery(".relation-id", relationBox).remove();
+                                jQuery(".relation-box .relation-id", dialog).each(function () {
+                                    var id = jQuery(this).attr("data-id");
+                                    var name = jQuery(this).text().trim();
+                                    jQuery(".relation-ids", relationBox).append(
+                                        '<div class="relation-id" data-id="' + id + '">\n' +
+                                        '<input type="hidden" name="' + dataField + '[id][]" value="' + id + '">' +
+                                        '<input type="hidden" name="' + dataField + '[name][]" value="' + name + '">' +
+                                        '' + name + '\n' +
+                                        '<div class="close">\n' +
+                                        '<i class="fas fa-times-circle"></i>\n' +
+                                        '</div>\n' +
+                                        '</div>'
+                                    );
+                                });
+                            }*/
+
                             jQuery(dialog).modal('hide');
                             return false;
                         });
+
                         jQuery(dialog).on("click", ".relation-form-add-open", function () {
                             jQuery(dialog).modal('hide');
-                            dialog = createDialogForm();
-                            dialog.on("shown.bs.modal", function () {
-                                jQuery(".modal-body form", dialog).ajaxForm(relationBox);
-                            })
-                            dialog.modal();
+                            var dialogFrom = createDialogForm();
+                            dialogFrom.on("shown.bs.modal", function () {
+                                jQuery(".modal-body form", dialogFrom).ajaxForm(relationBox);
+                                //dialogFrom.modal('handleUpdate');
+                            });
+                            dialogFrom.modal();
                         });
                     }
                 });
@@ -154,7 +206,7 @@
 
             function createDialogTabel() {
                 if (jQuery(relationBox).attr("data-action") == "find") {
-                    dialog = jQuery('<div class="modal relation-dialog" tabindex="-1" role="dialog" aria-hidden="true">\n' +
+                    dialog = jQuery('<div class="modal fade relation-dialog" tabindex="-1" role="dialog" aria-hidden="true">\n' +
                         '    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">\n' +
                         '        <div class="modal-content">\n' +
                         '            <div class="modal-body">\n' +
@@ -183,8 +235,6 @@
                         '    </div>\n' +
                         '</div>');
                 }
-
-
                 dialog.on('hidden.bs.modal', function (e) {
                     jQuery(e.target).remove();
                 });

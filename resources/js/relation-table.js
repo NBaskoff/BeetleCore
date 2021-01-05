@@ -5,8 +5,11 @@ jQuery(document).ready(function () {
         var line = parseInt(jQuery(box).attr("data-lines")) + 1;
         jQuery(box).attr("data-lines", line);
         html = html.split("|line|").join(line);
-        jQuery(box).find("table tbody").append("<tr>" + html + "</tr>");
+        var tr = jQuery("<tr>" + html + "</tr>");
+        jQuery(box).find("table tbody").append(tr);
+        startForm(tr);
     });
+
     jQuery("body").on("click", ".relation-table-delete-line", function () {
         jQuery(this).parents("tr").remove();
         return false;

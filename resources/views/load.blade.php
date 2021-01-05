@@ -2,13 +2,16 @@
 @push('title')
     {{$model->modelName}} :: Массовая загрузка позиций из изображений
 @endpush
+@push('js')
+    <script src="{{$beetleCoreResourcesFolder}}/js/load-form.js"></script>
+@endpush
 @section('content')
     <div class="card margin-top">
         <div class="card-header">
             {{$model->modelName}} :: Массовая загрузка позиций из изображений
         </div>
         <div class="card-body">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" id="load-form" enctype="multipart/form-data">
                 <input type="hidden" name="system_count_try" value="{{request("system_count_try", 0) + 1}}">
                 {{csrf_field()}}
                 @foreach($html as $k=>$i)

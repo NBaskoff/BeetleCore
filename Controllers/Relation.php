@@ -10,11 +10,11 @@ use Intervention\Image\ImageManagerStatic;
 
 class Relation
 {
-    protected $namespace = "App\\BeetleCMS\\";
 
-    public function form($model)
+
+    public function form()
     {
-        $model = $this->namespace . $model;
+        $model = request("model");
         /** @var $model Table */
         $model = new $model;
         $fields = $model->getFields();
@@ -39,10 +39,10 @@ class Relation
         return view("beetlecore::relation_form", compact("model", "html", "ids"));
     }
 
-    public function table($model)
+    public function table()
     {
         /** @var $model Table */
-        $model = $this->namespace . $model;
+        $model = request("model");
         $model = new $model;
         $ids = \request()->get("ids", []);
         $fields = $model->getShowFields();

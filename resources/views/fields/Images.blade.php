@@ -16,15 +16,11 @@
             <div class="select-file btn btn-primary btn-sm" >Загрузить изображения</div>
         </div>
 
-        {{--<input name="{{$class->field}}" type="text" class="form-control @if ($class->errors) is-invalid @endif"
-               value="{{$value}}">--}}
-        @if ($class->errors)
-            <div class="invalid-feedback">
-                @foreach($class->errors as $k=>$i)
-                    {{$i}}<br>
-                @endforeach
-            </div>
-        @endif
+        <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+            @foreach($class->errors as $k=>$i)
+                {{$i}}<br>
+            @endforeach
+        </div>
     </div>
 </div>
 
