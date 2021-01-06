@@ -1,4 +1,3 @@
-
 jQuery.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -29,6 +28,8 @@ jQuery(document).ready(function () {
     });*/
 
     jQuery(".ajax-form").ajaxForm();
+
+    jQuery("#main-form").startForm();
 
 });
 

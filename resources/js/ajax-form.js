@@ -15,7 +15,7 @@
             if (jQuery(box).hasClass("ajax-form-load")) {
                 loadForm();
             }
-            startForm(box);
+            jQuery(box).startForm();
             if (relationBox == undefined) {
                 jQuery(".btn-back", box).click(function () {
                     document.location.href = jQuery(box).attr("data-back") + "#scroll=" + getHashValue("scroll");

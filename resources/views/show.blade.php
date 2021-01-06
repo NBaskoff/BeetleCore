@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="get" id="find-form">
+            <form method="get" id="main-form">
                 <div class="row">
                     @foreach($html as $k=>$i)
                         <div class="col-md-4 col-xl-2">

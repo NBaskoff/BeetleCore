@@ -14,7 +14,7 @@
                     Данные сохранены
                 </div>
             @endif
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" id="main-form" enctype="multipart/form-data">
                 {{csrf_field()}}
                 @foreach($html as $k=>$i)
                     {!! $i !!}

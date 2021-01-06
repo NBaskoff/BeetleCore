@@ -63,7 +63,5 @@ jQuery(document).ready(function () {
             }
         });
     });
-
-    startForm("#find-form")
 });
 
