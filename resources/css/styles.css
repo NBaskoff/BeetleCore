@@ -178,7 +178,7 @@ body {
 .relation-ids {
   display: flex;
   flex-wrap: wrap;
-  margin: 6px -5px 0 -5px;
+  margin: 0 -5px;
 }
 .relation-ids .relation-id {
   padding: 0 25px 5px 5px;
