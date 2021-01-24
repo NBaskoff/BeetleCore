@@ -148,8 +148,6 @@ class RelationTable extends Basic
         }
         return true;
     }
-
-
 }
 
 

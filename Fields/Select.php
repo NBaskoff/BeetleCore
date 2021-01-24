@@ -14,7 +14,7 @@ class Select extends Basic
 	public function show($records)
 	{
 		if (!empty($records)) foreach ($records as $k => $i) {
-			if (!empty($records[$k]->getAttribute($this->field))) {
+			if (!empty($records[$k]->getAttribute($this->field)) AND !empty($this->data[$records[$k]->getAttribute($this->field)])) {
 				$records[$k]->setAttribute($this->field, $this->data[$records[$k]->getAttribute($this->field)]);
 			}
 		}
