@@ -117,11 +117,6 @@ class Basic
         return static::$search;
     }
 
-    public static function shotName()
-    {
-        return substr(strrchr(get_called_class(), "\\"), 1);
-    }
-
     public function createFind(Builder $db, $data)
     {
         if (!empty($data[$this->field])) {
@@ -146,7 +141,7 @@ class Basic
             $value = $data[$this->field];
         }
         $class = $this;
-        return view("beetlecore::fields." . $this->shotName(), compact("action", "value", "class"))->toHtml();
+        return view("beetlecore::fields." . class_basename($this), compact("action", "value", "class"))->toHtml();
     }
 
     public function getError()

@@ -125,11 +125,6 @@ class Table extends Model
         $this->delete();
     }
 
-    public static function shotName()
-    {
-        return substr(strrchr(get_called_class(), "\\"), 1);
-    }
-
     public function getSelfChildId()
     {
         $ids = [$this->getAttribute($this->getKeyName())];

@@ -21,17 +21,17 @@ class Images extends Basic
     {
         $field = $this->field;
         $value = [];
-        if (!empty($data[$field]) AND is_string($data[$field])) {
+        if (!empty($data[$field]) and is_string($data[$field])) {
             $value = json_decode($data[$field], true);
         }
-        if (!empty($data[$field]) AND is_array($data[$field])) {
-            foreach ($data[$field] as $k=>$i) {
+        if (!empty($data[$field]) and is_array($data[$field])) {
+            foreach ($data[$field] as $k => $i) {
                 $value[] = json_decode($i, true);
             }
         }
 
         $class = $this;
-        return view("beetlecore::fields." . $this->shotName(), compact("action", "value", "class", "field"))->toHtml();
+        return view("beetlecore::fields." . class_basename($this), compact("action", "value", "class", "field"))->toHtml();
     }
 
     public function show($records)

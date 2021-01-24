@@ -99,7 +99,7 @@ class Relation extends Basic
         }
         $ignoreId = implode(",", array_merge($ignoreId, $this->ignore));
         $class = $this;
-        return view("beetlecore::fields." . $this->shotName(), compact("action", "ids", "class", "primaryKey", "nameKey", "multiple", "model", "ignoreId"))->toHtml();
+        return view("beetlecore::fields." . class_basename($this), compact("action", "ids", "class", "primaryKey", "nameKey", "multiple", "model", "ignoreId"))->toHtml();
     }
 
     public function createFind(Builder $db, $data)

@@ -9,28 +9,29 @@ class RelationTable extends Basic
     protected static $search = false;
 
 
-	protected function standart($data, $action)
+    protected function standart($data, $action)
     {
         //узнаем на какую модель ссылается жта связь
         $model = $this->record->{$this->field}()->getRelated();
         //Узнаем на какие модели ссылаются все остальные связи
         $models = [];
-		$records = $this->record->{$this->field}()->getQuery();
+        $records = $this->record->{$this->field}()->getQuery();
         foreach ($this->relations as $k => $i) {
             if (!is_array($i)) {
-				$records = $records->with($k);
+                $records = $records->with($k);
                 $models[$k] = $model->{$k}()->getRelated();
             } else {
                 $models[$k] = $i;
             }
         }
-		$records = $records->orderBy($model->getKeyName())->get();
+        $records = $records->orderBy($model->getKeyName())->get();
         $value = "";
         if (!empty($data[$this->field])) {
             $value = $data[$this->field];
         }
         $class = $this;
-        return view("beetlecore::fields." . $this->shotName(), compact("action", "value", "class", "model", "models", "records"))->toHtml();
+        return view("beetlecore::fields." . class_basename($this
+            ), compact("action", "value", "class", "model", "models", "records"))->toHtml();
     }
 
     public function getDateCopy()
@@ -54,7 +55,7 @@ class RelationTable extends Basic
             foreach ($models as $mk => $mi) {
                 if (is_array($mi)) {
                     if ($mi["type"] == "Image") {
-                        if (!empty( $i->$mk))  {
+                        if (!empty($i->$mk)) {
                             $images = json_decode($i->$mk, true);
                             if (!empty($images)) foreach ($images as $kImage => $iImage) {
                                 $images[$kImage] = json_encode($iImage);
