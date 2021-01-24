@@ -14,7 +14,6 @@
     <title>@stack('title') :: BeetleCMS</title>
 </head>
 <body>
-{{--<div class="btn btn-primary modal-open">Открыть 1</div>--}}
 <!-- Modal Images -->
 <div class="modal fade" id="modalCropper" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 999999;">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
@@ -102,8 +101,8 @@
 
 <script src="{{$beetleCoreResourcesFolder}}/js/urls.js"></script>
 
-<script src="{{$beetleCoreResourcesFolder}}/js/field-images-box.js"></script>
-<script src="{{$beetleCoreResourcesFolder}}/js/field-relations.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/images-box.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/relation-field.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-table.js"></script>
 
 <script src="//cdn.jsdelivr.net/gh/jquery-form/form/dist/jquery.form.min.js"></script>

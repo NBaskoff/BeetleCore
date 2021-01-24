@@ -17,11 +17,7 @@ class Relation
         $model = request("model");
         /** @var $model Table */
         $model = new $model;
-        $fields = $model->getFields();
-        if (!empty($model->getLinkSelf())) {
-            unset($fields[explode(".", $model->getLinkSelf())[1]]);
-        }
-        $form = new Form(new $model, null, $fields);
+        $form = new Form(new $model, null, $model->getFindFields());
         $html = $form->renderFind([]);
         $ids = \request()->get("ids", []);
         if (!empty($ids)) {

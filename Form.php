@@ -35,11 +35,9 @@ class Form
         if ($fields === null) {
             $fields = $record->getFields();
         }
-        if (!empty($fields))
-            foreach ($fields as $k => $i) {
-                $i["form"] = &$this;
-                $this->fields[$k] = new $i["type"]($k, $i, $record);
-            }
+        if (!empty($fields)) {
+            $this->setFields($fields);
+        }
     }
 
     public function setFields($fields)

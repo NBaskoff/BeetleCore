@@ -43,6 +43,17 @@ class Table extends Model
         return $this->fields;
     }
 
+    public function getFindFields()
+    {
+        $fields = $this->getFields();
+        if (!empty($fields)) foreach ($fields as $k => $field) {
+            if (isset($field["find"]) and $field["find"] === false) {
+                unset($fields[$k]);
+            }
+        }
+        return $fields;
+    }
+
     public function getShowFields()
     {
         $fields = $this->getFields();

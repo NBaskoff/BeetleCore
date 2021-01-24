@@ -3,7 +3,7 @@
         function main(box) {
             jQuery(".admin-field-images-box", box).imageBox();
 
-            jQuery(".relation-form-box", box).relationTable();
+            jQuery(".relation-form-box", box).relationField();
 
             jQuery('.tinymce', box).tinymce({
                 language: "ru",

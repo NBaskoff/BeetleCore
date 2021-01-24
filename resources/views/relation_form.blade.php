@@ -1,6 +1,6 @@
 <div class="container">
     <div class="relation-box">
-        <form class="relation-ids">
+        <form class="relation-ids relation-ids-top">
             @foreach($ids as $id)
                 <div class="relation-id" data-id="{{$id["id"]}}">
                     {{$id["name"]}}

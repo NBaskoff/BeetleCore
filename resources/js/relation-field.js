@@ -1,5 +1,5 @@
 (function (jQuery) {
-    jQuery.fn.relationTable = function () {
+    jQuery.fn.relationField = function () {
         function main(box) {
             var dataField = "";
             var model = "";
@@ -40,6 +40,7 @@
                     },
                     success: function (data) {
                         jQuery(".modal-body", dialog).html(data);
+                        jQuery(".modal-body .relation-form", dialog).startForm();
                         updateRelationTable(1, 0);
 
                         jQuery(dialog).on("click", ".relation-form .start-find", function () {
@@ -76,11 +77,10 @@
                                 jQuery(input).prop('checked', false);
                             } else {
                                 if (multiple != true) {
-                                    jQuery(box).find(".relation-ids").html("");
+                                    jQuery(box).find(".relation-ids-top").html("");
                                     jQuery(box).find("input").prop('checked', false);
                                 }
-
-                                jQuery(box).find(".relation-ids").append(
+                                jQuery(box).find(".relation-ids-top").append(
                                     '<div class="relation-id" data-id="' + id + '">\n' +
                                     jQuery(input).attr("data-name") +
                                     '<div class="close">\n' +
@@ -99,10 +99,10 @@
 
                             if (jQuery(input).prop("checked")) {
                                 if (multiple != true) {
-                                    jQuery(box).find(".relation-ids").html("");
+                                    jQuery(box).find(".relation-ids-top").html("");
                                     jQuery(box).find("input").prop('checked', false);
                                 }
-                                jQuery(box).find(".relation-ids").append(
+                                jQuery(box).find(".relation-ids-top").append(
                                     '<div class="relation-id" data-id="' + id + '">\n' +
                                     jQuery(input).attr("data-name") +
                                     '<div class="close">\n' +
@@ -123,7 +123,7 @@
 
                         jQuery(dialog).on("click", ".dialog-save", function () {
                             jQuery(".relation-id", relationBox).remove();
-                            jQuery(".relation-box .relation-id", dialog).each(function () {
+                            jQuery(".relation-box .relation-ids-top .relation-id", dialog).each(function () {
                                 var id = jQuery(this).attr("data-id");
                                 var name = jQuery(this).text();
                                 jQuery(".relation-ids", relationBox).append(
@@ -154,7 +154,7 @@
 
             function createDialogTabel() {
                 if (jQuery(relationBox).attr("data-action") == "find") {
-                    dialog = jQuery('<div class="modal relation-dialog" tabindex="-1" role="dialog" aria-hidden="true">\n' +
+                    dialog = jQuery('<div class="modal open relation-dialog" tabindex="-1" role="dialog" aria-hidden="true" style="overflow-x: hidden; overflow-y: auto;">\n' +
                         '    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">\n' +
                         '        <div class="modal-content">\n' +
                         '            <div class="modal-body">\n' +
@@ -167,7 +167,7 @@
                         '    </div>\n' +
                         '</div>');
                 } else {
-                    dialog = jQuery('<div class="modal relation-dialog" tabindex="-1" role="dialog" aria-hidden="true">\n' +
+                    dialog = jQuery('<div class="modal relation-dialog" tabindex="-1" role="dialog" aria-hidden="true" style="overflow-x: hidden; overflow-y: auto;">\n' +
                         '    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">\n' +
                         '        <div class="modal-content">\n' +
                         '            <div class="modal-body">\n' +

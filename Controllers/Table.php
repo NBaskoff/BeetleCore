@@ -35,7 +35,7 @@ class Table
         } else {
             $records = $this->model->getShowRecords($parent, $id);
         }
-        $form = new Form(new $this->model);
+        $form = new Form(new $this->model, null, $this->model->getFindFields());
         $records = $form->createFind($records, request()->all())->paginate(50);
         $html = $form->renderFind(request()->all());
         $model = $this->model;
@@ -98,7 +98,7 @@ class Table
                 }
                 $form = $form->setFields($fields);
                 if ($form->valid(request()->toArray()) === true) {
-                    foreach (request("records") as $k=>$i) {
+                    foreach (request("records") as $k => $i) {
                         $record = $this->model::query()->find($i);
                         $form = new Form($record);
                         $form = $form->setFields($fields);
@@ -134,12 +134,12 @@ class Table
             "images" => $fields[$key],
         ]);
         if (request()->method() == "POST") {
-            foreach (\request("images") as $k=>$i) {
+            foreach (\request("images") as $k => $i) {
                 $record = new $this->model();
                 $form = new Form($record);
                 $save = [
                     $key => [$i],
-                    $name => str_replace("№", $k+1, \request("name"))
+                    $name => str_replace("№", $k + 1, \request("name"))
                 ];
                 //$this->addEditBeforeSave($parent, $id, $record);
                 $form->save($save, $parent, $id);
