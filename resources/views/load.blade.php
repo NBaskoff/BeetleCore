@@ -11,7 +11,7 @@
             {{$model->modelName}} :: Массовая загрузка позиций из изображений
         </div>
         <div class="card-body">
-            <form method="POST" id="load-form" enctype="multipart/form-data">
+            <form method="POST" id="main-form" enctype="multipart/form-data">
                 <input type="hidden" name="system_count_try" value="{{request("system_count_try", 0) + 1}}">
                 {{csrf_field()}}
                 @foreach($html as $k=>$i)
