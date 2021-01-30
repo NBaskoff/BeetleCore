@@ -30,17 +30,7 @@ class Form
             $form = new FormBeetle($record);
             $html = $form->renderAdd();
         }
-
-        echo implode("\n", $html).'<div class="form-group row">
-                    <div class="col-md-4">
-                        <div class="btn btn-back btn-block" data-dismiss="modal">Отмена</div>
-                    </div>
-                    <div class="col-md-8">
-                        <button name="system_value__save" value="Y" class="btn btn-primary btn-block">
-                            Сохранить
-                        </button>
-                    </div>
-                </div>';
+        echo view("beetlecore::form", compact("html"))->toHtml();
     }
 
     public function save()

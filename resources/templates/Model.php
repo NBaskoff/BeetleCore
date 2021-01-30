@@ -10,7 +10,7 @@ class NameModel extends Admin
     protected $table = "NameTable";
     public $modelName = "Новый раздел";
     public $modelDescription = "";
-    public $positionActive = "active";
+    public $activeKey = "active";
     public $positionKey = "position";
     public $nameKey = "name";
     protected $fields = [
