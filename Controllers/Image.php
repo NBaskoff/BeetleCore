@@ -19,20 +19,12 @@ class Image
             $name = $file->hashName();
             move_uploaded_file($file->getPathname(), $fileName);
 
-            $manager = new ImageManager(['driver' => 'imagick']);
+            $manager = new ImageManager(["driver" => "imagick"]);
             $img = $manager->make($fileName);
 
-            if ($img->width() > request("width")) {
-                $img = $img->resize(request("width"), null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-            }
-
-            if ($img->width() < request("width")) {
-                $img = $img->resize(request("width"), null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-            }
+			$img = $img->resize(request("width"), null, function ($constraint) {
+				$constraint->aspectRatio();
+			});
 
             if ($img->height() < request("height")) {
                 $img = $img->resize(null, request("height"), function ($constraint) {
