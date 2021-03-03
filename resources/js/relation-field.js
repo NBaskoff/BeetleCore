@@ -122,24 +122,13 @@
                         });
 
                         jQuery(dialog).on("click", ".dialog-save", function () {
-                            jQuery(".relation-id", relationBox).remove();
-                            jQuery(".relation-box .relation-ids-top .relation-id", dialog).each(function () {
-                                var id = jQuery(this).attr("data-id");
-                                var name = jQuery(this).text();
-                                jQuery(".relation-ids", relationBox).append(
-                                    '<div class="relation-id" data-id="' + id + '">\n' +
-                                    '<input type="hidden" name="' + dataField + '[id][]" value="' + id + '">' +
-                                    '' + name + '\n' +
-                                    '<div class="close">\n' +
-                                    '<i class="fas fa-times-circle"></i>\n' +
-                                    '</div>\n' +
-                                    '</div>'
-                                );
-                            });
+                            save();
                             jQuery(dialog).modal('hide');
                             return false;
                         });
+
                         jQuery(dialog).on("click", ".relation-form-add-open", function () {
+                            save();
                             jQuery(dialog).modal('hide');
                             dialog = createDialogForm();
                             dialog.on("shown.bs.modal", function () {
@@ -232,6 +221,23 @@
                     }
                 });
                 return false;
+            }
+
+            function save() {
+                jQuery(".relation-id", relationBox).remove();
+                jQuery(".relation-box .relation-ids-top .relation-id", dialog).each(function () {
+                    var id = jQuery(this).attr("data-id");
+                    var name = jQuery(this).text();
+                    jQuery(".relation-ids", relationBox).append(
+                        '<div class="relation-id" data-id="' + id + '">\n' +
+                        '<input type="hidden" name="' + dataField + '[id][]" value="' + id + '">' +
+                        '' + name + '\n' +
+                        '<div class="close">\n' +
+                        '<i class="fas fa-times-circle"></i>\n' +
+                        '</div>\n' +
+                        '</div>'
+                    );
+                });
             }
         }
 

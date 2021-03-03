@@ -65,10 +65,9 @@
                                 document.location.href = jQuery(box).attr("data-back") + "#scroll=" + getHashValue("scroll");
                             } else {
                                 jQuery(box).parents(".relation-form-dialog").modal("hide");
-                                if (jQuery(relationBox).attr("data-multiple") !== true) {
+                                if (jQuery(relationBox).attr("data-multiple") != 1) {
                                     jQuery(".relation-id", relationBox).remove();
                                 }
-
                                 jQuery(".relation-ids", relationBox).append(
                                     '<div class="relation-id" data-id="' + data.recordId + '">\n' +
                                     '<input type="hidden" name="' + jQuery(relationBox).attr("data-field") + '[id][]" value="' + data.recordId + '">' +
@@ -86,6 +85,7 @@
                 jQuery(this).ajaxSubmit(options);
                 return false;
             });
+
             function loadForm() {
                 jQuery.ajax({
                     type: "POST",
@@ -109,6 +109,7 @@
                 });
             }
         }
+
         this.each(function () {
             main(jQuery(this));
         });

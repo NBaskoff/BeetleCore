@@ -8,6 +8,7 @@ class Make
 {
     public static function start($name, $table = null)
     {
+		$name = ucfirst($name);
         if ($table == null) {
             $table = Str::of($name)->snake();
         }
