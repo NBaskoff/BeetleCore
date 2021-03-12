@@ -44,13 +44,13 @@ class Image
             $img = $manager->canvas(request("width"), request("height"))
                 ->insert($img, "center-center")
                 ->save(public_path() . "/files/{$md5}_tmp.png", 100);
-            $info["img"] = $this->saveFile("{$md5}_tmp.png");
+            $info["img"] = $this->saveFile("/files/{$md5}_tmp.png");
 
             $img->resize("300", null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             })->save(public_path() . "/files/{$md5}_tmp.png", 100);
-            $info["small"] = $this->saveFile("{$md5}_tmp.png");
+            $info["img"] = $this->saveFile("/files/{$md5}_tmp.png");
 
             $field = request("field");
             return view("beetlecore::fields.image_box_load", compact("info", "field"))->toHtml();

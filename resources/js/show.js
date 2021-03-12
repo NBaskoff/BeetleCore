@@ -63,5 +63,30 @@ jQuery(document).ready(function () {
             }
         });
     });
+
+
+    //History
+    let historyLinks = sessionStorage.getItem("historyLinks");
+    if (historyLinks == null) {
+        historyLinks = [];
+    } else {
+        historyLinks = JSON.parse(historyLinks);
+    }
+    let link = window.location.pathname + window.location.search;
+    if (historyLinks.length == 0 || historyLinks[historyLinks.length - 1] != link) {
+        historyLinks.push(link);
+    }
+    if (historyLinks.length > 1) {
+        jQuery("#history-back").css("display", "block");
+        jQuery("#page-title").removeClass("col-md-11").addClass("col-md-10");
+    }
+    sessionStorage.setItem("historyLinks", JSON.stringify(historyLinks));
+    jQuery("#history-back").click(function () {
+        historyLinks.pop();
+        sessionStorage.setItem("historyLinks", JSON.stringify(historyLinks));
+        window.location.href =  historyLinks.pop();
+        return false;
+    });
+
 });
 

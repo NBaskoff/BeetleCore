@@ -1,5 +1,5 @@
 @foreach($html as $k=>$i)
-    {{$i}}
+    {!! $i !!}
 @endforeach
 <div class="form-group row">
     <div class="col-md-4">

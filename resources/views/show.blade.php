@@ -9,21 +9,14 @@
     <div class="card margin-top">
         <div class="card-header">
             <div class="row">
-                @if ($id == 0)
-                    <div class="col-md-11 card-header-text">
-                        {{$model->modelName}} :: Просмотр записей
-                    </div>
-                @else
-                    <div class="col-md-1">
-                        <a class="btn btn-primary btn-block btn-sm"
-                           href="{{route(request()->route()->getName(), ["action" => "show"])}}">
-                            <i class="fas fa-chevron-circle-left"></i>
-                        </a>
-                    </div>
-                    <div class="col-md-10 card-header-text">
-                        {{$model->modelName}} :: Просмотр записей
-                    </div>
-                @endif
+                <div class="col-md-1" id="history-back" style="display: none">
+                    <a class="btn btn-primary btn-block btn-sm" href="/" >
+                        <i class="fas fa-chevron-circle-left"></i>
+                    </a>
+                </div>
+                <div class="col-md-11 card-header-text" id="page-title">
+                    {{$model->modelName}} :: Просмотр записей
+                </div>
                 <div class="col-md-1">
                     <a class="btn btn-primary btn-block btn-sm back-link" href="{{route(request()->route()->getName(), ["action" => "add", "parent"=>$parent, "parent_id"=>$id, "back"=>$_SERVER["REQUEST_URI"]])}}">
                         <i class="fas fa-plus"></i>
