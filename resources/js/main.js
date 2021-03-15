@@ -28,8 +28,18 @@ jQuery(document).ready(function () {
     });*/
 
     jQuery(".ajax-form").ajaxForm();
-
     jQuery("#main-form").startForm();
+
+
+    jQuery("body").on("click", ".beetle-tab .nav-link", function () {
+        let box = jQuery(this).parents(".beetle-tab").eq(0);
+        jQuery(box).find(".nav-link").removeClass("active");
+        jQuery(this).addClass("active");
+        let target = jQuery(this).attr("href");
+        jQuery(box).find(".tab-pane").removeClass("active");
+        jQuery(box).find(target).addClass("active");
+        return false;
+    });
 
 });
 

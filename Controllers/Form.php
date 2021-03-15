@@ -3,7 +3,7 @@
 
 namespace BeetleCore\Controllers;
 
-use \BeetleCore\Form as FormBeetle;
+use BeetleCore\Form as FormBeetle;
 
 class Form
 {
@@ -19,7 +19,6 @@ class Form
         if (!empty($recordId)) {
             $record = $model::query()->find($recordId);
             $form = new FormBeetle($record);
-            $html = $form->renderEdit($record);
         } else {
             if (!empty($parent)) {
                 $filed = explode(".", $parent)[1];
@@ -27,10 +26,23 @@ class Form
             } else {
                 $record = new $model();
             }
-            $form = new FormBeetle($record);
+        }
+        $fields = $record->getFields();
+        $form = new FormBeetle($record, null, $fields);
+        if (!empty($recordId)) {
+            $html = $form->renderEdit($record);
+        } else {
             $html = $form->renderAdd();
         }
-        echo view("beetlecore::form", compact("html"))->toHtml();
+        $tabs = [];
+        foreach ($fields as $k => $i) {
+            if (!empty($i["tab"])) {
+                $tabs[$i["tab"]][] = $k;
+            } else {
+                $tabs["Главная"][] = $k;
+            }
+        }
+        echo view("beetlecore::form", compact("html", "tabs"))->toHtml();
     }
 
     public function save()

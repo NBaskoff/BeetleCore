@@ -11,6 +11,6 @@ class Views extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . "/../resources/views", "beetlecore");
         //view()->share("beetleCoreResourcesFolder", "/resources");
-        view()->share("beetleCoreResourcesFolder", "//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.8/resources");
+        view()->share("beetleCoreResourcesFolder", "//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.9/resources");
     }
 }

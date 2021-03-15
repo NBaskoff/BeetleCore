@@ -78,6 +78,9 @@ body {
   background: #ffffff;
   color: #135e8a;
 }
+.card-header a:not([href]):not([tabindex]) {
+  color: #135e8a;
+}
 .table-striped tbody tr:nth-of-type(odd) {
   background: #f7f7fb;
 }
@@ -243,5 +246,17 @@ body {
 }
 .table-relation .relation-next-level {
   cursor: pointer;
+}
+.beetle-tab {
+  margin: 0 0 15px 0;
+}
+.beetle-tab .nav-link {
+  color: #135e8a;
+}
+.beetle-tab .tab-content .tab-pane {
+  padding: 15px;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 }
 /*# sourceMappingURL=styles.css.map */

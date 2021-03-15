@@ -17,8 +17,6 @@
         </div>
         <div class="card-body">
             <form class="ajax-form ajax-form-load" data-model="{{$modelName}}" data-id="{{$record_id}}" data-parent="{{$parent}}" data-parent-id="{{$parent_id}}" data-back="{{$back}}" method="POST" enctype="multipart/form-data">
-
-
             </form>
         </div>
     </div>
