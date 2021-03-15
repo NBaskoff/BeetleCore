@@ -1,5 +1,4 @@
 @if (count($tabs) > 1)
-
     <div class="beetle-tab">
         <ul class="nav nav-tabs">
             @php($count = 0)

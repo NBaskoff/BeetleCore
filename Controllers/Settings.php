@@ -15,9 +15,9 @@ class Settings
 		$save = false;
 		/* @var $record \BeetleCore\Model\Settings */
 		$record = new $this->model;
-		$fields = array_keys($record->getFields());
-		$record->fill($this->model::query()->whereIn("name", $fields)->pluck("value", "name")->toArray());
-		$form = new Form($record);
+        $fields = $record->getFields();
+		$record->fill($this->model::query()->whereIn("name", array_keys($fields))->pluck("value", "name")->toArray());
+		$form = new Form($record, null, $fields);
 		if (request()->method() == "POST") {
 			if ($form->valid(request()->toArray()) === true) {
 				$records = $form->getSave(request()->toArray());
@@ -35,6 +35,14 @@ class Settings
 			$html = $form->renderEdit($record);
 		}
         $model = new $this->model;
-		return view("beetlecore::settings", compact("html", "save", "model"));
+        $tabs = [];
+        foreach ($fields as $k => $i) {
+            if (!empty($i["tab"])) {
+                $tabs[$i["tab"]][] = $k;
+            } else {
+                $tabs["Главная"][] = $k;
+            }
+        }
+		return view("beetlecore::settings", compact("html", "save", "model", "tabs"));
 	}
 }
