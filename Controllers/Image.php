@@ -50,7 +50,7 @@ class Image
                 $constraint->aspectRatio();
                 $constraint->upsize();
             })->save(public_path() . "/files/{$md5}_tmp.png", 100);
-            $info["img"] = $this->saveFile("/files/{$md5}_tmp.png");
+            $info["small"] = $this->saveFile("/files/{$md5}_tmp.png");
 
             $field = request("field");
             return view("beetlecore::fields.image_box_load", compact("info", "field"))->toHtml();

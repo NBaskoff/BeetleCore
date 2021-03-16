@@ -7,28 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Table extends Model
 {
 
-    /**
-     * Название модуля
-     * @var string
-     */
+    /** @var string Название модуля */
     public $modelName = "";
-    /**
-     * Описание модуля
-     * @var string
-     */
+    /** @var string Описание модуля */
     public $modelDescription = "";
-    /**
-     * @var string поле где содерджится имя записи
-     */
+    /** @var string поле где содерджится имя записи */
     public $nameKey = "name";
-    /**
-     * @var string поле для определания позиции
-     */
+    /** @var string поле для определания позиции */
     public $positionKey = "";
-    /**
-     * @var string поле для определания активности
-     */
+    /** @var string поле для определания активности*/
     public $activeKey = "";
+    /** @var string сортировка по полю */
+    public $orderKey = "";
 
     protected $fields = [];
     protected $relations = [];
@@ -99,6 +89,13 @@ class Table extends Model
         }
         if (!empty($this->positionKey)) {
             $records = $records->orderBy($this->positionKey);
+        }
+        if (!empty($this->orderKey)) {
+            if (is_array($this->orderKey)) {
+                $records = $records->orderBy($this->orderKey[0], $this->orderKey[1] ?? "asc");
+            } else {
+                $records = $records->orderBy($this->orderKey);
+            }
         }
         return $records;
     }
@@ -171,8 +168,13 @@ class Table extends Model
         if (!empty($model->activeKey) and !empty($active)) {
             $query = $query->where($model->activeKey, $active);
         }
-        if (!empty($model->positionKey) and !empty($order)) {
-            $query = $query->orderBy($model->positionKey, $order);
+        if (!empty($order)) {
+            if (!empty($model->positionKey)) {
+                $query = $query->orderBy($model->positionKey, $order);
+            }
+            if (!empty($model->orderKey)) {
+                $query = $query->orderBy($model->orderKey, $order);
+            }
         }
         return $query;
     }
