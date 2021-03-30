@@ -10,7 +10,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-md-1" id="history-back" style="display: none">
-                    <a class="btn btn-primary btn-block btn-sm" href="/" >
+                    <a class="btn btn-primary btn-block btn-sm" href="/">
                         <i class="fas fa-chevron-circle-left"></i>
                     </a>
                 </div>
@@ -128,7 +128,7 @@
                     <div class="col-md-9">
                         <nav>
                             <ul class="pagination justify-content-end">
-                                {{ $records->appends(request()->all())->links() }}
+                                {!! $records->appends(request()->all())->links() !!}
                             </ul>
                         </nav>
                     </div>

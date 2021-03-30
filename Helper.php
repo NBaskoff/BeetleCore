@@ -52,28 +52,22 @@ class Helper
         return $str !== $result ? self::replaceWhitespace($result) : $result;
     }
 
-    /**
-     * @param array $telegrammText
-     */
-    public static function sendTelegramMessage($telegrammText)
+    public static function sendTelegramMessage($chatId, $token, $telegrammText)
     {
-        $token = "token";
-        $chat_id = "id";
         if (!empty($telegrammText))
             foreach ($telegrammText as $k => $i) {
                 $telegrammText[$k] = urlencode($i);
             }
         $telegrammText = implode("%0A", $telegrammText);
-
-        $url = "https://api.telegram.org/bot{$token}/sendMessage?chat_id=$chat_id&parse_mode=html&text=$telegrammText";
+        $url = "https://api.telegram.org/bot{$token}/sendMessage?chat_id=$chatId&parse_mode=html&text=$telegrammText";
         $ch = curl_init(); // инициализация
         curl_setopt($ch, CURLOPT_URL, $url); // адрес страницы для скачивания
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);   //TIMEOUT
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);  //Переходим по редиректам
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // нам нужно вывести загруженную страницу в переменную
-        curl_setopt($ch, CURLOPT_PROXY, "196.19.122.67:8000");
+        /*curl_setopt($ch, CURLOPT_PROXY, "196.19.122.67:8000");
         curl_setopt($ch, CURLOPT_PROXYUSERPWD, "1k0xL9:qbw3Lr");
-        curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+        curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);*/
         curl_exec($ch);
         curl_close($ch);
     }

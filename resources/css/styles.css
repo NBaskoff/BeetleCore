@@ -145,7 +145,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.10/resources/i/image_bg.png) 0 0 repeat;
+  /*background: url(//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.11/resources/i/image_bg.png) 0 0 repeat;*/
 }
 .admin-field-images-box .images-list-box .image-box .image img {
   width: 100%;

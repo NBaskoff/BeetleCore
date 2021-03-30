@@ -36,7 +36,7 @@ class Table
             $records = $this->model->getShowRecords($parent, $id);
         }
         $form = new Form(new $this->model, null, $this->model->getFindFields());
-        $records = $form->createFind($records, request()->all())->paginate(50);
+        $records = $form->createFind($records, request()->all())->paginate(100);
         $html = $form->renderFind(request()->all());
         $model = $this->model;
         $records = $form->renderShow($records);
