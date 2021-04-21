@@ -144,7 +144,7 @@ class Table
                 //$this->addEditBeforeSave($parent, $id, $record);
                 $form->save($save, $parent, $id);
             }
-            return redirect()->route(request()->route()->getName(), ["action" => "show", "parent" => $parent, "id" => $id]);
+            return redirect()->route(request()->route()->getName(), ["action" => "show", "parent_id" => $parent, "record_id" => $id]);
         }
         $html = $form->renderAdd();
         $model = $this->model;

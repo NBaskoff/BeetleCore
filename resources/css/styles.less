@@ -72,13 +72,21 @@ body {background: #ecf0f5;}
 .admin-field-images-box {
     .images-list-box {display: flex; flex-wrap: wrap; margin: 0 -5px;
         .image-box {position: relative; margin: 0 5px 5px 5px; width: 200px; cursor: move; background: #ffffff;
-            .image {width: 100%; min-height: 60px; border: 1px solid #000000; display: flex; justify-content: center; align-items: center; /*background: url(//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.11/resources/i/image_bg.png) 0 0 repeat;*/
+            .image {width: 100%; min-height: 60px; border: 1px solid #000000; display: flex; justify-content: center; align-items: center;
                 img { width: 100%;}
             }
             .name {width: 100%; text-align: center;}
             .del {position: absolute; right: 5px; top: 5px; cursor: pointer; background: #ffffff; border-radius: 100%; width: 24px; text-align: center;}
             .edit {position: absolute; right: 5px; top: 32px; cursor: pointer; background: #ffffff; border-radius: 100%; width: 24px; text-align: center;}
             &.image-box-placeholder {border: 1px solid #fcefa1; background: #fbf9ee; min-height: 50px;}
+        }
+    }
+}
+
+.admin-field-images-box-bg {
+    .images-list-box {
+        .image-box {
+            .image {background: url(//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.13/resources/i/image_bg.png) 0 0 repeat;}
         }
     }
 }
@@ -128,4 +136,14 @@ body {background: #ecf0f5;}
     .tab-content {
         .tab-pane {padding: 15px; border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6;}
     }
+}
+
+.relation-items {
+    .items-box {
+        .card {margin-bottom: 15px;
+            .card-body {padding-bottom: 0; position: relative;}
+            .delete {position: absolute; top: 1px; right: 4px; color: #135e8a; font-size: 14px; cursor: pointer;}
+        }
+    }
+    .relation-items-add-box {display: none;}
 }

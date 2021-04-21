@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label class="col-md-4 col-form-label">{{$class->name}}@if (!empty($class->desc)) ({{$class->desc}}) @endif</label>
     <div class="col-md-8">
-        <div class="admin-field-images-box" data-width="{{$class->width}}" data-height="{{$class->height}}" data-filed="{{$class->field}}">
+        <div class="admin-field-images-box {{$class->class ?? ""}}" data-style="{{$class->style ?? ""}}" data-width="{{$class->width ?? 250}}" data-height="{{$class->height ?? 250}}" data-filed="{{$class->field}}">
             <div class="images-list-box">
                 <div class="image-box image-load" style="display: none">
                     <div class="image">

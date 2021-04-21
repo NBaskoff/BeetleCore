@@ -104,6 +104,7 @@
 <script src="{{$beetleCoreResourcesFolder}}/js/images-box.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-field.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/relation-table.js"></script>
+<script src="{{$beetleCoreResourcesFolder}}/js/relation-items.js"></script>
 
 <script src="//cdn.jsdelivr.net/gh/jquery-form/form/dist/jquery.form.min.js"></script>
 <script src="{{$beetleCoreResourcesFolder}}/js/start-form.js"></script>

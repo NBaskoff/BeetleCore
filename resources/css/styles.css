@@ -145,7 +145,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: url(//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.11/resources/i/image_bg.png) 0 0 repeat;*/
 }
 .admin-field-images-box .images-list-box .image-box .image img {
   width: 100%;
@@ -178,6 +177,9 @@ body {
   border: 1px solid #fcefa1;
   background: #fbf9ee;
   min-height: 50px;
+}
+.admin-field-images-box-bg .images-list-box .image-box .image {
+  background: url(//cdn.jsdelivr.net/gh/NBaskoff/BeetleCore@1.9.13/resources/i/image_bg.png) 0 0 repeat;
 }
 .relation-ids {
   display: flex;
@@ -259,5 +261,23 @@ body {
   border-left: 1px solid #dee2e6;
   border-right: 1px solid #dee2e6;
   border-bottom: 1px solid #dee2e6;
+}
+.relation-items .items-box .card {
+  margin-bottom: 15px;
+}
+.relation-items .items-box .card .card-body {
+  padding-bottom: 0;
+  position: relative;
+}
+.relation-items .items-box .card .delete {
+  position: absolute;
+  top: 1px;
+  right: 4px;
+  color: #135e8a;
+  font-size: 14px;
+  cursor: pointer;
+}
+.relation-items .relation-items-add-box {
+  display: none;
 }
 /*# sourceMappingURL=styles.css.map */

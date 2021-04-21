@@ -128,7 +128,7 @@
                     <div class="col-md-9">
                         <nav>
                             <ul class="pagination justify-content-end">
-                                {!! $records->appends(request()->all())->links() !!}
+                                {{ $records->appends(request()->all())->links() }}
                             </ul>
                         </nav>
                     </div>
