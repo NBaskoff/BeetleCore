@@ -11,6 +11,7 @@ class Basic
 {
     protected static $order = false;
     protected static $search = false;
+    protected $default = "";
     /**
      * @var Admin
      */
@@ -64,11 +65,11 @@ class Basic
 
     public function save($data)
     {
-		if (array_key_exists($this->field, $data)) {
-			return [$this->field => trim($data[$this->field])];
-		} else {
-			return false;
-		}
+        if (array_key_exists($this->field, $data)) {
+            return [$this->field => trim($data[$this->field])];
+        } else {
+            return false;
+        }
 
     }
 
@@ -136,9 +137,10 @@ class Basic
 
     protected function standart($data, $action)
     {
-        $value = "";
         if (!empty($data[$this->field])) {
             $value = $data[$this->field];
+        } else {
+            $value = $this->default;
         }
         $class = $this;
         return view("beetlecore::fields." . class_basename($this), compact("action", "value", "class"))->toHtml();
@@ -149,7 +151,8 @@ class Basic
         return $this->errors;
     }
 
-    public function afterSave($data) {
+    public function afterSave($data)
+    {
         return true;
     }
 

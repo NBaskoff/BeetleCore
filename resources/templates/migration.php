@@ -17,7 +17,7 @@ class CreateNameModelTable extends Migration
             $table->id();
             $table->timestamps();
             $table->enum("active", ["Y", "N"])->default("Y");
-            $table->integer("position")->index();
+            $table->integer("position")->index()->index();
             $table->string("name");
             $table->text("title")->nullable();
             $table->text("description")->nullable();

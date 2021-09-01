@@ -26,17 +26,23 @@ class NameModel extends Admin
         "title" => [
             "name" => "SEO title",
             "type" => Textbox::class,
-            "show" => false
+            "show" => false,
+            "find" => false,
+            "tab" => "SEO"
         ],
         "description" => [
             "name" => "SEO description",
             "type" => Textarea::class,
-            "show" => false
+            "show" => false,
+            "find" => false,
+            "tab" => "SEO"
         ],
         "keywords" => [
             "name" => "SEO keywords",
             "type" => Textarea::class,
-            "show" => false
+            "show" => false,
+            "find" => false,
+            "tab" => "SEO"
         ],
     ];
 }

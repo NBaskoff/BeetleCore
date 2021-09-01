@@ -11,7 +11,6 @@ use Intervention\Image\ImageManagerStatic;
 class Relation
 {
 
-
     public function form()
     {
         $model = request("model");
