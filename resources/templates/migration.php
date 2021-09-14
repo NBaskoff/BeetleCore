@@ -16,8 +16,8 @@ class CreateNameModelTable extends Migration
         Schema::create("NameTable", function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum("active", ["Y", "N"])->default("Y");
-            $table->integer("position")->index()->index();
+            $table->enum("active", ["Y", "N"])->default("Y")->index();
+            $table->integer("position")->index();
             $table->string("name");
             $table->text("title")->nullable();
             $table->text("description")->nullable();
