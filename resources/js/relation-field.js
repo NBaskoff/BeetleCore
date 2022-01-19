@@ -63,7 +63,7 @@
                         jQuery(dialog).on("click", ".pagination .page-item", function () {
                             jQuery(".pagination .page-item", dialog).removeClass("active");
                             jQuery(this).addClass("active");
-                            updateRelationTable(parseInt(jQuery(this).text()), parent);
+                            updateRelationTable(parseInt(jQuery(this).text()), parent, true);
                             return false;
                         });
 
