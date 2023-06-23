@@ -8,6 +8,10 @@
 
 BeetleCMS (CRUD) for Laravel
 
+<img src="https://i.ibb.co/LC7wZWg/image-2023-06-23-20-51-04.png" alt="image-2023-06-23-20-51-04" border="0">
+<img src="https://i.ibb.co/xXBkyPY/image-2023-06-23-20-51-04-2.png" alt="image-2023-06-23-20-51-04-2" border="0">
+<img src="https://i.ibb.co/sFDWsjp/image-2023-06-23-20-51-04-3.png" alt="image-2023-06-23-20-51-04-3" border="0">
+
 ```php
 namespace App\BeetleCMS;
 
