@@ -7,7 +7,7 @@ use Illuminate\Http\UploadedFile;
 use Intervention\Image\ImageManagerStatic;
 use Intervention\Image\ImageManager;
 
-class Image
+class ImageController extends Controller
 {
     public function load()
     {

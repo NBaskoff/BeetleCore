@@ -8,13 +8,13 @@ use BeetleCore\Form;
 use Illuminate\Http\UploadedFile;
 use Intervention\Image\ImageManagerStatic;
 
-class Relation
+class RelationController extends Controller
 {
 
     public function form()
     {
         $model = request("model");
-        /** @var $model Table */
+        /** @var $model TableController */
         $model = new $model;
         $form = new Form(new $model, null, $model->getFindFields());
         $html = $form->renderFind([]);
@@ -36,7 +36,7 @@ class Relation
 
     public function table()
     {
-        /** @var $model Table */
+        /** @var $model TableController */
         $model = request("model");
         $model = new $model;
         $ids = \request()->get("ids", []);

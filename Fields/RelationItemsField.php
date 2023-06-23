@@ -7,7 +7,7 @@ namespace BeetleCore\Fields;
 use BeetleCore\Form;
 use BeetleCore\Models\Table;
 
-class RelationItems extends Basic
+class RelationItemsField extends BasicField
 {
     protected static $search = false;
 

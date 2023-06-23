@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Images extends Basic
+class ImagesField extends BasicField
 {
 
     protected static $order = false;

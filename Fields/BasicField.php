@@ -7,7 +7,7 @@ use App\Form;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class Basic
+abstract class BasicField
 {
     protected static $order = false;
     protected static $search = false;

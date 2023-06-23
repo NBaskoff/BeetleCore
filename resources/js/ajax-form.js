@@ -1,11 +1,11 @@
 (function (jQuery) {
     jQuery.fn.ajaxForm = function (relationBox) {
         function main(formBox) {
-            var modelName;
-            var parent;
-            var parentId;
-            var recordId;
-            var box;
+            let modelName;
+            let parent;
+            let parentId;
+            let recordId;
+            let box;
 
             box = formBox;
             modelName = jQuery(box).attr("data-model");
@@ -23,7 +23,7 @@
             }
             jQuery(box).submit(function (e) {
                 e.preventDefault()
-                var options = {
+                let options = {
                     url: ajaxFormUrl + "/save",
                     type: "POST",
                     dataType: "JSON",
@@ -43,9 +43,9 @@
                     },
                     success: function (data) {
                         if (data.error !== null) {
-                            var error = null;
-                            for (var key in data.error) {
-                                var val = data.error[key];
+                            let error = null;
+                            for (let key in data.error) {
+                                let val = data.error[key];
                                 if (val.length > 0) {
                                     jQuery(".invalid-feedback-" + key + "", box).text(val);
                                     jQuery("*[name=" + key + "]", box).addClass("is-invalid");
@@ -57,7 +57,7 @@
                             if (relationBox == undefined) {
                                 jQuery('body,html').animate({scrollTop: jQuery(error).offset().top - jQuery(window).height() / 2}, 300);
                             } else {
-                                var thisDialog = jQuery(box).parents(".relation-form-dialog");
+                                let thisDialog = jQuery(box).parents(".relation-form-dialog");
                                 thisDialog.animate({scrollTop: jQuery(error).offset().top - jQuery(thisDialog).height() / 2}, 300);
                             }
                         } else {

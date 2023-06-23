@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Integer extends Basic
+class Float102Field extends BasicField
 {
 
     protected static $order = true;
@@ -14,7 +14,5 @@ class Integer extends Basic
         } else {
             return [$this->field => "0"];
         }
-
     }
-
 }

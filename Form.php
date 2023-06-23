@@ -2,7 +2,7 @@
 
 namespace BeetleCore;
 
-use BeetleCore\Fields\Basic;
+use BeetleCore\Fields\BasicField;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ class Form
 
     /**
      * Массив полей
-     * @var \BeetleCore\Fields\Basic[]
+     * @var \BeetleCore\Fields\BasicField[]
      */
     protected $fields;
     /**

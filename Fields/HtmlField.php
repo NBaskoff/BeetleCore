@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Html extends Basic
+class HtmlField extends BasicField
 {
 
     protected static $order = true;

@@ -5,7 +5,7 @@ namespace BeetleCore\Controllers;
 use BeetleCore\Form;
 use Illuminate\Http\Request;
 
-class Settings
+class SettingsController extends Controller
 {
 	/* @var \BeetleCore\Model\Settings */
 	protected $model = \BeetleCore\Models\Settings::class;

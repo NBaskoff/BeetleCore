@@ -24,15 +24,15 @@
     },
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/framework": "^8.12|^9.0",
+        "laravel/framework": "^8.12|^9.0|^10.0",
         "intervention/image": "^2.5"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "BeetleCore\\Providers\\Migrations",
-                "BeetleCore\\Providers\\Routes",
-                "BeetleCore\\Providers\\Views"
+                "BeetleCore\\Providers\\MigrationsProvider",
+                "BeetleCore\\Providers\\RoutesProvider",
+                "BeetleCore\\Providers\\ViewsProvider"
             ]
         }
     }

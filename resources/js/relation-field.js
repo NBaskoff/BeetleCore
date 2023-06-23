@@ -1,13 +1,13 @@
 (function (jQuery) {
     jQuery.fn.relationField = function () {
         function main(box) {
-            var dataField = "";
-            var model = "";
-            var ignoreId = 0;
-            var parent = 0;
-            var multiple = 0;
-            var relationBox;
-            var dialog;
+            let dataField = "";
+            let model = "";
+            let ignoreId = 0;
+            let parent = 0;
+            let multiple = 0;
+            let relationBox;
+            let dialog;
 
             relationBox = box;
             dataField = jQuery(relationBox).attr("data-field");
@@ -26,7 +26,7 @@
             });
 
             function openDialog() {
-                var ids = [];
+                let ids = [];
                 jQuery(".relation-ids .relation-id", relationBox).each(function () {
                     ids[ids.length] = jQuery(this).attr("data-id");
                 });
@@ -54,7 +54,7 @@
                         });
 
                         jQuery(dialog).on("click", ".relation-id .close", function () {
-                            var id = jQuery(this).parents(".relation-id").attr("data-id");
+                            let id = jQuery(this).parents(".relation-id").attr("data-id");
                             jQuery(this).parents(".relation-id").remove();
                             jQuery(dialog).find(".relation-table input[value=" + id + "]").prop("checked", false);
                             return false;
@@ -68,9 +68,9 @@
                         });
 
                         jQuery(dialog).on("click", ".table .relation-select", function () {
-                            var input = jQuery(this).parents("tr").find("input");
-                            var box = jQuery(this).parents(".relation-box");
-                            var id = jQuery(input).val();
+                            let input = jQuery(this).parents("tr").find("input");
+                            let box = jQuery(this).parents(".relation-box");
+                            let id = jQuery(input).val();
 
                             if (jQuery(input).prop("checked")) {
                                 jQuery(box).find(".relation-id[data-id=" + id + "]").remove();
@@ -93,9 +93,9 @@
                         });
 
                         jQuery(dialog).on("click", ".table .relation-select-input", function () {
-                            var input = jQuery(this).parents("tr").find("input");
-                            var box = jQuery(this).parents(".relation-box");
-                            var id = jQuery(input).val();
+                            let input = jQuery(this).parents("tr").find("input");
+                            let box = jQuery(this).parents(".relation-box");
+                            let id = jQuery(input).val();
 
                             if (jQuery(input).prop("checked")) {
                                 if (multiple != true) {
@@ -198,11 +198,11 @@
             }
 
             function updateRelationTable(page, parent, find = false) {
-                var ids = [];
+                let ids = [];
                 jQuery(".relation-ids .relation-id", dialog).each(function () {
                     ids[ids.length] = jQuery(this).attr("data-id");
                 });
-                var data = {
+                let data = {
                     //find: data,
                     ids: ids,
                     page: page,
@@ -226,8 +226,8 @@
             function save() {
                 jQuery(".relation-id", relationBox).remove();
                 jQuery(".relation-box .relation-ids-top .relation-id", dialog).each(function () {
-                    var id = jQuery(this).attr("data-id");
-                    var name = jQuery(this).text();
+                    let id = jQuery(this).attr("data-id");
+                    let name = jQuery(this).text();
                     jQuery(".relation-ids", relationBox).append(
                         '<div class="relation-id" data-id="' + id + '">\n' +
                         '<input type="hidden" name="' + dataField + '[id][]" value="' + id + '">' +

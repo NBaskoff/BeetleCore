@@ -1,8 +1,8 @@
 <?php
 namespace App\BeetleCMS;
 
-use BeetleCore\Fields\Textarea;
-use BeetleCore\Fields\Textbox;
+use BeetleCore\Fields\TextareaField;
+use BeetleCore\Fields\TextboxField;
 use BeetleCore\Validators\NoEmpty;
 use BeetleCore\Validators\Unique;
 
@@ -17,7 +17,7 @@ class NameModel extends Admin
     protected $fields = [
         "name" => [
             "name" => "Название",
-            "type" => Textbox::class,
+            "type" => TextboxField::class,
             "validators" => [
                 [NoEmpty::class],
                 //[Unique::class]
@@ -25,21 +25,21 @@ class NameModel extends Admin
         ],
         "title" => [
             "name" => "SEO title",
-            "type" => Textbox::class,
+            "type" => TextboxField::class,
             "show" => false,
             "find" => false,
             "tab" => "SEO"
         ],
         "description" => [
             "name" => "SEO description",
-            "type" => Textarea::class,
+            "type" => TextareaField::class,
             "show" => false,
             "find" => false,
             "tab" => "SEO"
         ],
         "keywords" => [
             "name" => "SEO keywords",
-            "type" => Textarea::class,
+            "type" => TextareaField::class,
             "show" => false,
             "find" => false,
             "tab" => "SEO"

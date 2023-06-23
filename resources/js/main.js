@@ -6,10 +6,10 @@ jQuery.ajaxSetup({
 
 jQuery(document).ready(function () {
     jQuery("body").on("click", "a, button, .back-link", function () {
-        var text = jQuery(this).attr("data-question");
+        let text = jQuery(this).attr("data-question");
         if (text == undefined || confirm(text)) {
             if (jQuery(this).hasClass("back-link")) {
-                var href = jQuery(this).attr("href");
+                let href = jQuery(this).attr("href");
                 href = href + "#scroll=" + jQuery(document).scrollTop();
                 window.location = href;
                 return false;
@@ -44,6 +44,6 @@ jQuery(document).ready(function () {
 });
 
 function getHashValue(key) {
-    var matches = location.hash.match(new RegExp(key + '=([^&]*)'));
+    let matches = location.hash.match(new RegExp(key + '=([^&]*)'));
     return matches ? matches[1] : null;
 }

@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Url extends Basic
+class UrlField extends BasicField
 {
 
     protected static $order = true;

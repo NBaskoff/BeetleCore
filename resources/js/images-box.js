@@ -2,19 +2,19 @@ jQuery(document).ready(function () {
     (function ($) {
         jQuery.fn.imageBox = function (options) {
             // опции
-            var config = $.extend({}, {
+            let config = $.extend({}, {
                 op1: '',
                 op2: ''
             }, options);
 
             function main(imagesBox) {
                 jQuery(".select-file", imagesBox).click(function () {
-                    var inputFileLoad = jQuery("<input>", {
+                    let inputFileLoad = jQuery("<input>", {
                         "type": "file",
                         multiple: 1,
                         accept: ".jpeg,.jpg,.png",
                         change: function (e) {
-                            for (var i = 0; i < e.target.files.length; i++) {
+                            for (let i = 0; i < e.target.files.length; i++) {
                                 loadFile(e.target.files[i], imagesBox);
                             }
                         }
@@ -30,17 +30,17 @@ jQuery(document).ready(function () {
             }
 
             function loadFile(file, imagesBox) {
-                var imageWidth = jQuery(imagesBox).attr("data-width");
-                var imageHeight = jQuery(imagesBox).attr("data-height");
-                var imageField = jQuery(imagesBox).attr("data-filed");
+                let imageWidth = jQuery(imagesBox).attr("data-width");
+                let imageHeight = jQuery(imagesBox).attr("data-height");
+                let imageField = jQuery(imagesBox).attr("data-filed");
 
-                var loadBox = jQuery(imagesBox).find(".image-load").clone();
+                let loadBox = jQuery(imagesBox).find(".image-load").clone();
                 loadBox.removeClass("image-load");
                 loadBox.css("display", "block");
                 loadBox.find(".name").text(file.name);
                 jQuery(".images-list-box", imagesBox).append(loadBox);
 
-                var dataArray = new FormData();
+                let dataArray = new FormData();
                 dataArray.append('file', file);
                 dataArray.append('width', imageWidth);
                 dataArray.append('height', imageHeight);

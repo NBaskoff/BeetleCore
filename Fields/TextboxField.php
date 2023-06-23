@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Textbox extends Basic
+class TextboxField extends BasicField
 {
 
     protected static $order = true;

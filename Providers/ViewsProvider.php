@@ -6,7 +6,7 @@ namespace BeetleCore\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
-class Views extends ServiceProvider
+class ViewsProvider extends ServiceProvider
 {
     public function boot()
     {

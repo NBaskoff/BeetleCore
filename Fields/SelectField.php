@@ -4,7 +4,7 @@
 namespace BeetleCore\Fields;
 
 
-class Select extends Basic
+class SelectField extends BasicField
 {
     protected static $order = true;
     protected static $search = true;

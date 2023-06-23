@@ -3,8 +3,8 @@
 
 namespace BeetleCore\Models;
 
-use BeetleCore\Fields\Password;
-use BeetleCore\Fields\Textbox;
+use BeetleCore\Fields\PasswordField;
+use BeetleCore\Fields\TextboxField;
 use BeetleCore\Validators\NoEmpty;
 use BeetleCore\Validators\Unique;
 use Illuminate\Support\Facades\Hash;
@@ -16,11 +16,11 @@ class UserAdmin extends Table
 	protected $fields = [
 		"name" => [
 			"name" => "Имя",
-			"type" => Textbox::class,
+			"type" => TextboxField::class,
 		],		
 		"login" => [
 			"name" => "Логин",
-			"type" => Textbox::class,
+			"type" => TextboxField::class,
 			"validators" => [
 				[NoEmpty::class],
 				[Unique::class]
@@ -28,7 +28,7 @@ class UserAdmin extends Table
 		],
 		"password" => [
 			"name" => "Пароль",
-			"type" => Password::class,
+			"type" => PasswordField::class,
 			"show" => false
 		],
 	];

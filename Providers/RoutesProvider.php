@@ -4,7 +4,7 @@ namespace BeetleCore\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class Routes extends ServiceProvider
+class RoutesProvider extends ServiceProvider
 {
     public function boot()
     {

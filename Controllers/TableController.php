@@ -5,7 +5,7 @@ namespace BeetleCore\Controllers;
 use BeetleCore\Form;
 use Illuminate\Http\Request;
 
-class Table
+class TableController extends Controller
 {
     /**
      * @var \BeetleCore\Models\Table

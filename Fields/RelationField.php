@@ -7,7 +7,7 @@ namespace BeetleCore\Fields;
 use BeetleCore\Models\Table;
 use Illuminate\Database\Eloquent\Builder;
 
-class Relation extends Basic
+class RelationField extends BasicField
 {
     protected static $search = true;
     protected $ignore = [];

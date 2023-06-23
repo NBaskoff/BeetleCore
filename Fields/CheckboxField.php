@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Checkbox extends Basic
+class CheckboxField extends BasicField
 {
 
     protected static $order = true;

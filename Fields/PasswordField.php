@@ -4,7 +4,7 @@ namespace BeetleCore\Fields;
 
 use Illuminate\Support\Facades\Hash;
 
-class Password extends Basic
+class PasswordField extends BasicField
 {
 
     protected static $order = false;

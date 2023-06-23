@@ -6,7 +6,7 @@ namespace BeetleCore\Providers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
-class Migrations extends ServiceProvider
+class MigrationsProvider extends ServiceProvider
 {
 	public function boot()
 	{

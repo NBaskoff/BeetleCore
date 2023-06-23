@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class DateTime extends Basic
+class DateTimeField extends BasicField
 {
     protected static $order = true;
     protected static $search = false;

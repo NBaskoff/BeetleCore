@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
         jQuery("#dataTable tbody input").prop("checked", jQuery(this).prop("checked"));
     });
 
-    var IdOnStartDrag = new Array();
+    let IdOnStartDrag = new Array();
     jQuery("#dataTable").tableDnD({
         onDragClass: "thisDragRow",
         dragHandle: "dragRow",
@@ -20,12 +20,12 @@ jQuery(document).ready(function () {
 
         },
         onDrop: function (table, row) {
-            var nowId = new Array();
+            let nowId = new Array();
             $("tbody tr td .dragRow", table).each(function (e) {
                 nowId[nowId.length] = $(this).attr("rel");
             });
-            var shiftElements = new Array();
-            for (var i = 0; i < IdOnStartDrag.length; i++) {
+            let shiftElements = new Array();
+            for (let i = 0; i < IdOnStartDrag.length; i++) {
                 if (IdOnStartDrag[i] !== nowId[i]) {
                     shiftElements[shiftElements.length] = new Array(nowId[i], IdOnStartDrag[i]);
                 }
@@ -41,9 +41,9 @@ jQuery(document).ready(function () {
     });
 
     jQuery(".active-record-box").click(function () {
-        var box = jQuery(this);
-        var id = jQuery(box).attr("data-id");
-        var value = "Y";
+        let box = jQuery(this);
+        let id = jQuery(box).attr("data-id");
+        let value = "Y";
         if (jQuery(box).hasClass("active")) {
             value = "N";
         }

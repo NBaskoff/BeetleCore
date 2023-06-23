@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Fields;
 
-class Color extends Basic
+class ColorField extends BasicField
 {
 
     protected static $order = true;
