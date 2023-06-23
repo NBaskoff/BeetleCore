@@ -6,10 +6,10 @@
         {{$info["name"]}}
     </div>
     <div class="del">
-        <i class="fas fa-trash"></i>
+        <i class="fa-solid fa-trash"></i>
     </div>
     <div class="edit">
-        <i class="fas fa-edit"></i>
+        <i class="fa-solid fa-pen-to-square"></i>
     </div>
     <input type="hidden" name="{{$field}}[]" value="{{json_encode($info)}}">
 </div>

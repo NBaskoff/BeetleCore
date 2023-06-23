@@ -73,7 +73,7 @@
                                 </td>
                                 @if (!empty($model->positionKey))
                                     <td style="text-align: center;">
-                                        <div class="dragRow" rel="{{$recordId}}"><i class="fas fa-arrows-alt-v"></i>
+                                        <div class="dragRow" data-id="{{$recordId}}"><i class="fas fa-arrows-alt-v"></i>
                                         </div>
                                     </td>
                                 @endif

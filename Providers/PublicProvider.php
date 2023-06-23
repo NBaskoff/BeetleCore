@@ -13,6 +13,8 @@ class PublicProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../public' => public_path("vendor/beetlecore"),
+            __DIR__ . '/../public' => public_path("vendor/beetlecore"),
+            __DIR__ . '/../fonts' => public_path("fonts"),
             __DIR__ . '/../BeetleCMS' => app_path("BeetleCMS"),
             __DIR__ . '/../routes' => base_path("routes"),
             __DIR__.'/../resources/views/menu.blade.php' => resource_path('views/vendor/beetlecore/menu.blade.php'),

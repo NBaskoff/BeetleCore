@@ -2,7 +2,7 @@
 
 namespace BeetleCore\Models;
 
-class SettingsModel extends Table
+class SettingsModel extends TableModel
 {
 	public $modelName = "Настройки сайта";
 	protected $table = "settings";

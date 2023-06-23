@@ -1,10 +1,10 @@
-let urlAdmin = window.location.pathname;
-urlAdmin = urlAdmin.split('/');
+let url = window.location.pathname;
+url = url.split('/');
 
-let ajaxFormUrl = "/" + urlAdmin[1] + "/system/form";
+window.ajaxFormUrl = "/" + url[1] + "/system/form";
 
-let relationUrl = "/" + urlAdmin[1] + "/system/relation";
+window.relationUrl = "/" + url[1] + "/system/relation";
 
-let imageUrl = "/" + urlAdmin[1] + "/system/image";
+window.imageUrl = "/" + url[1] + "/system/image";
 
-urlAdmin = "/" + urlAdmin[1] + "/" + urlAdmin[2] + "/";
+window.urlAdmin = "/" + url[1] + "/" + url[2] + "/";

@@ -7,7 +7,7 @@
 
             jQuery('.tinymce', box).tinymce({
                 language: "ru",
-                theme: "modern",
+                //theme: "modern",
                 extended_valid_elements: 'script[type|charset|src],iframe[src|style|width|height|scrolling|marginwidth|marginheight|frameborder],div[*],p[*],object[width|height|classid|codebase|embed|param],param[name|value],embed[param|src|type|width|height|flashvars|wmode]',
                 //plugins : "advlist,anchor,autolink,autoresize,autosave,bbcode,charmap,code,colorpicker,contextmenu,directionality,emoticons,fullpage,fullscreen,hr,image,importcss,insertdatetime,layer,legacyoutput,link,lists,media,nonbreaking,noneditable,pagebreak,paste,preview,print,save,searchreplace,spellchecker,tabfocus,table,template,textcolor,textpattern,visualblocks,visualchars,wordcount",
                 plugins: "code,fullscreen,paste,image,link,media,print,wordcount,table",
