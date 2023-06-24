@@ -29,6 +29,7 @@ abstract class BasicField
     public $field = "";
     public $name = "";
     public $errors = [];
+    protected $viewPath = "beetlecore::fields.";
 
     public function __construct($field, $params, $record)
     {
@@ -143,7 +144,7 @@ abstract class BasicField
             $value = $this->default;
         }
         $class = $this;
-        return view("beetlecore::fields." . class_basename($this), compact("action", "value", "class"))->toHtml();
+        return view($this->viewPath . class_basename($this), compact("action", "value", "class"))->toHtml();
     }
 
     public function getError()

@@ -43,7 +43,7 @@ class RelationItemsField extends BasicField
         $form = new Form($model, null, $fieldsThis);
         $htmlAdd = $form->renderAdd();
         $class = $this;
-        return view("beetlecore::fields." . class_basename($this), compact("action", "class", "html", "htmlAdd"))->toHtml();
+        return view($this->viewPath . class_basename($this), compact("action", "class", "html", "htmlAdd"))->toHtml();
     }
 
     public function save($data)

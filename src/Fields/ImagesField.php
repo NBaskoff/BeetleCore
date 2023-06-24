@@ -31,7 +31,7 @@ class ImagesField extends BasicField
         }
 
         $class = $this;
-        return view("beetlecore::fields." . class_basename($this), compact("action", "value", "class", "field"))->toHtml();
+        return view($this->viewPath . class_basename($this), compact("action", "value", "class", "field"))->toHtml();
     }
 
     public function show($records)
