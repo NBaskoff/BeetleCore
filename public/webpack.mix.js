@@ -11,9 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 mix.setPublicPath('public');
-mix.js('resources/js/app.js', 'public/js').version();
-mix.js('resources/js/show.js', 'public/js').version()
-mix.js('resources/js/edit-bulk.js', 'public/js').version()
-mix.sass('resources/scss/app.scss', 'public/css').version();
-mix.copyDirectory('resources/i', 'public/i');
+mix.js('resources/js/app.js', 'public/js/vendor/nbaskoff/beetlecore').version();
+mix.js('resources/js/show.js', 'public/js/vendor/nbaskoff/beetlecore').version()
+mix.js('resources/js/edit-bulk.js', 'public/js/vendor/nbaskoff/beetlecore').version()
+mix.sass('resources/scss/app.scss', 'public/css/vendor/nbaskoff/beetlecore').version();
+mix.copyDirectory('resources/images', 'public/images');
 

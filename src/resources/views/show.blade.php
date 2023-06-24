@@ -3,7 +3,7 @@
     {{$model->modelName}} :: Просмотр записей
 @endpush
 @push('js')
-    <script src="/vendor/beetlecore/js/show.js"></script>
+    <script src="/js/vendor/nbaskoff/beetlecore/show.js"></script>
 @endpush
 @section('content')
     <div class="card margin-top">

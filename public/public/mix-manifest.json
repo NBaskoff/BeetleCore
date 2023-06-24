@@ -1,10 +1,10 @@
 {
-    "/js/app.js": "/js/app.js?id=3ecca4f17520b773b4985fcf32df7ea6",
-    "/js/show.js": "/js/show.js?id=d3c24f0562f938a192d5f7f2ad38ce55",
-    "/js/edit-bulk.js": "/js/edit-bulk.js?id=26881f19b079b05498b005cea6980560",
-    "/css/app.css": "/css/app.css?id=2f51cf9a5b58d5568d0f9667ccb9d58c",
-    "/i/6.gif": "/i/6.gif?id=9bae0bf3de013b657ff53e302efa6c60",
-    "/i/bg.jpg": "/i/bg.jpg?id=4030d2945511b632a51ba67bf05508d0",
-    "/i/carbon.png": "/i/carbon.png?id=f9b93194c5cdeb8dd3f0c2b18cf45a7b",
-    "/i/image_bg.png": "/i/image_bg.png?id=b7a306c29509089db8505ed1eafebdab"
+    "/js/vendor/nbaskoff/beetlecore/app.js": "/js/vendor/nbaskoff/beetlecore/app.js?id=b1a95c3ab32d956ff3a940d0207c7ba0",
+    "/js/vendor/nbaskoff/beetlecore/show.js": "/js/vendor/nbaskoff/beetlecore/show.js?id=d3c24f0562f938a192d5f7f2ad38ce55",
+    "/js/vendor/nbaskoff/beetlecore/edit-bulk.js": "/js/vendor/nbaskoff/beetlecore/edit-bulk.js?id=26881f19b079b05498b005cea6980560",
+    "/css/vendor/nbaskoff/beetlecore/app.css": "/css/vendor/nbaskoff/beetlecore/app.css?id=ca5fda5196e09040d77f77d99f1c21c9",
+    "/images/vendor/nbaskoff/beetlecore/6.gif": "/images/vendor/nbaskoff/beetlecore/6.gif?id=9bae0bf3de013b657ff53e302efa6c60",
+    "/images/vendor/nbaskoff/beetlecore/bg.jpg": "/images/vendor/nbaskoff/beetlecore/bg.jpg?id=4030d2945511b632a51ba67bf05508d0",
+    "/images/vendor/nbaskoff/beetlecore/carbon.png": "/images/vendor/nbaskoff/beetlecore/carbon.png?id=f9b93194c5cdeb8dd3f0c2b18cf45a7b",
+    "/images/vendor/nbaskoff/beetlecore/image_bg.png": "/images/vendor/nbaskoff/beetlecore/image_bg.png?id=b7a306c29509089db8505ed1eafebdab"
 }

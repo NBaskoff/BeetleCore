@@ -3,7 +3,7 @@
     {{$model->modelName}} :: Редактирование записей
 @endpush
 @push('js')
-    <script src="/vendor/beetlecore/js/edit-bulk.js"></script>
+    <script src="/js/vendor/nbaskoff/beetlecore/edit-bulk.js"></script>
 @endpush
 @section('content')
     <div class="card margin-top">

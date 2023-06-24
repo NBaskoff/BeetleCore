@@ -5,7 +5,7 @@
             <div class="images-list-box">
                 <div class="image-box image-load" style="display: none">
                     <div class="image">
-                        <img src="/vendor/beetlecore/i/6.gif" style="width: 70px;">
+                        <img src="/images/vendor/nbaskoff/beetlecore/6.gif" style="width: 70px;">
                     </div>
                     <div class="name">Загрузка изображения</div>
                 </div>
