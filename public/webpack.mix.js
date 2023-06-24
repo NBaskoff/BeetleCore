@@ -16,4 +16,4 @@ mix.js('resources/js/show.js', 'public/js/vendor/nbaskoff/beetlecore').version()
 mix.js('resources/js/edit-bulk.js', 'public/js/vendor/nbaskoff/beetlecore').version()
 mix.sass('resources/scss/app.scss', 'public/css/vendor/nbaskoff/beetlecore').version();
 mix.copyDirectory('resources/images', 'public/images');
-
+mix.copyDirectory('node_modules/tinymce/skins', 'public/js/vendor/nbaskoff/beetlecore/skins');
