@@ -8,12 +8,9 @@
 
 BeetleCMS (CRUD) for Laravel
 
-<img src="https://ns100.ru/beetlecms/s1.png" border="0">
-<img src="https://ns100.ru/beetlecms/s2.png" border="0">
-<img src="https://ns100.ru/beetlecms/s3.png" border="0">
-<img src="https://ns100.ru/beetlecms/s4.png" border="0">
-<img src="https://ns100.ru/beetlecms/s5.png" border="0">
-<img src="https://ns100.ru/beetlecms/s6.png" border="0">
+<img src="https://ns100.ru/beetlecms/1.png" border="0">
+<img src="https://ns100.ru/beetlecms/2.png" border="0">
+<img src="https://ns100.ru/beetlecms/3.png" border="0">
 
 ```php
 namespace App\BeetleCMS;

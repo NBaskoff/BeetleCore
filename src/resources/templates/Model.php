@@ -6,7 +6,7 @@ use BeetleCore\Fields\TextboxField;
 use BeetleCore\Validators\NoEmpty;
 use BeetleCore\Validators\Unique;
 
-class NameModel extends Admin
+class NameModelModel extends AdminModel
 {
     protected $table = "NameTable";
     public $modelName = "Новый раздел";

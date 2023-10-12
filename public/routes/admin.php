@@ -41,4 +41,6 @@ Route::group(["prefix" => "admin", "middleware" => ["beetle-authenticate"]], fun
 
     Route::match(["get", "post"], "/system/relation/form", "\\BeetleCore\\Controllers\\RelationController@form");
     Route::match(["get", "post"], "/system/relation/table", "\\BeetleCore\\Controllers\\RelationController@table");
+
+    Route::post("/system/file/load", "\\BeetleCore\\Controllers\\FileController@load");
 });

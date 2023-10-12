@@ -3,7 +3,7 @@
 
 namespace App\BeetleCMS\Controllers;
 
-class NameModelController extends Admin
+class NameModelController extends AdminController
 {
-    protected $modelName = \App\BeetleCMS\NameModel::class;
+    protected $modelName = \App\BeetleCMS\NameModelModel::class;
 }

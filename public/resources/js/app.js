@@ -42,4 +42,5 @@ require("./relation-table");
 require("./relation-items");
 require("./start-form");
 require("./ajax-form");
+require("./file");
 require("./main");

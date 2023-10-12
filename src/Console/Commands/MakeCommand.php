@@ -52,7 +52,7 @@ class MakeCommand extends Command
             $table = Str::of($name)->snake();
         }
         $templateDir = realpath(__DIR__ . "/../../resources/templates");
-        self::createTemplate("$templateDir/Model.php", $name, $table, app_path("/BeetleCMS/$name.php")); //model
+        self::createTemplate("$templateDir/Model.php", $name, $table, app_path("/BeetleCMS/{$name}Model.php")); //model
         self::createTemplate("$templateDir/Controller.php", $name, $table, app_path("/BeetleCMS/Controllers/{$name}Controller.php")); //controller
         self::createTemplate("$templateDir/migration.php", $name, $table, database_path("/migrations/" . date("Y_m_d_His") . "_create_{$table}_table.php")); //migration
         //echo web.php string
