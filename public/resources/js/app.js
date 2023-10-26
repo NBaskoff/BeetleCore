@@ -10,6 +10,7 @@ require("jquery-cropper/dist/jquery-cropper");
 require("jquery-form/dist/jquery.form.min");
 require("tablednd");
 //require("magnific-popup");
+require("devbridge-autocomplete");
 
 require("tinymce/tinymce.min");
 require("tinymce/themes/silver");
@@ -40,6 +41,7 @@ require("./images-box");
 require("./relation-field");
 require("./relation-table");
 require("./relation-items");
+require("./location-vk-field");
 require("./start-form");
 require("./ajax-form");
 require("./file");

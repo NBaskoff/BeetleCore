@@ -152,3 +152,31 @@ body {background: #ecf0f5;}
     }
     .relation-items-add-box {display: none;}
 }
+
+.admin-field-location-vk-box {display: flex; flex-wrap: wrap; margin: 0 -15px;
+    .control-box {width: 50%; padding: 0 15px; display: flex; align-items: center;
+        .col-form-label {width: 100px;}
+    }
+    .text-box {font-size: 14px;
+        .clear-select {cursor: pointer; color: #9999cc; font-size: 12px;}
+    }
+    /*.screen-width(600px, {
+        .control-box {width: 50%;}
+        .text-box {width: 100%;}
+    });
+    .screen-width(425px, {
+        .control-box {width: 100%;}
+    });*/
+    .city-load-box {width: 100%; position: relative;
+        .load-progress {position: absolute; top: 11px; right: 11px; height: 25px; display: none;}
+    }
+}
+
+
+.autocomplete-suggestions { border: 1px solid #999999; background: #ffffff; overflow: auto;
+    .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer;}
+    .autocomplete-selected { background: #f0f0f0; }
+    strong { font-weight: normal; color: #9999cc; }
+    .autocomplete-group { padding: 2px 5px; }
+    .autocomplete-group strong { display: block; border-bottom: 1px solid #000000; }
+}

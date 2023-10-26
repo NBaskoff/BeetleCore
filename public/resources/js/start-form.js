@@ -2,8 +2,8 @@
     jQuery.fn.startForm = function () {
         function main(box) {
             jQuery(".admin-field-images-box", box).imageBox();
-
             jQuery(".relation-form-box", box).relationField();
+            jQuery(".admin-field-location-vk-box", box).locationVKField();
 
             jQuery('.tinymce', box).tinymce({
                 language: "ru",
