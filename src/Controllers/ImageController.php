@@ -10,12 +10,12 @@ class ImageController extends Controller
 {
     public function load(ImageLoadAction $action)
     {
-        return $action();
+        return view("beetlecore::fields.image_box_load", $action())->toHtml();
     }
 
     public function size(ImageSizeAction $action)
     {
-        return $action();
+        return view("beetlecore::fields.image_box_load", $action())->toHtml();
     }
 
 }

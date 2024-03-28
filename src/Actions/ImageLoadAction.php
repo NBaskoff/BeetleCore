@@ -50,7 +50,7 @@ class ImageLoadAction
             $info["small"] = $this->saveFile("/files/{$md5}_tmp.png");
 
             $field = request("field");
-            return view("beetlecore::fields.image_box_load", compact("info", "field"))->toHtml();
+            return compact("info", "field");
         }
     }
 

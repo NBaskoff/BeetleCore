@@ -22,4 +22,17 @@ class DateTimeField extends BasicField
         }
         return $records;
     }
+
+    public function save($data)
+    {
+        if (array_key_exists($this->field, $data)) {
+            if (empty($data[$this->field])) {
+                return [$this->field => null];
+            } else {
+                return [$this->field => trim($data[$this->field])];
+            }
+        } else {
+            return false;
+        }
+    }
 }

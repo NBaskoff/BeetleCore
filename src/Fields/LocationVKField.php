@@ -63,6 +63,7 @@ class LocationVKField extends BasicField
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);  //Переходим по редиректам
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // нам нужно вывести загруженную страницу в переменную
             $result = curl_exec($ch);
+
             curl_close($ch);
             Cache::put($key, $result, 60 * 60 * 24);
         }

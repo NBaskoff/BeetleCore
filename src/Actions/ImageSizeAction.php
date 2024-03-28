@@ -157,7 +157,7 @@ class ImageSizeAction
         $info["small"] = $this->saveFile($tmpName);
 
         $field = request("field");
-        return view("beetlecore::fields.image_box_load", compact("info", "field"))->toHtml();
+        return compact("info", "field");
     }
 
     protected function saveFile($path)

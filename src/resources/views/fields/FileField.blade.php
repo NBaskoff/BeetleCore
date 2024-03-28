@@ -1,18 +1,18 @@
 @if ($action == "find")
     <div class="form-group">
-        <label class="col-form-label">{{$class->name}}</label>
-        <input name="{{$class->field}}" type="text" class="form-control @if ($class->errors) is-invalid @endif" value="{{$value}}">
-        <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+        <label class="col-form-label">{{ $class->name }}</label>
+        <input name="{{ $class->field }}" type="text" class="form-control @if ($class->errors) is-invalid @endif" value="{{ $value }}">
+        <div class="invalid-feedback invalid-feedback-{{ $class->field }}">
             @foreach($class->errors as $k=>$i)
-                {{$i}}<br>
+                {{ $i }}<br>
             @endforeach
         </div>
     </div>
 @else
     <div class="form-group row">
-        <label class="col-md-4 col-form-label">{{$class->name}}</label>
+        <label class="col-md-4 col-form-label">{{ $class->name }}</label>
         <div class="col-md-8 admin-field-files-box">
-            <input name="{{$class->field}}" type="hidden" class="form-control @if ($class->errors) is-invalid @endif" value="{{ $value }}">
+            <input name="{{ $class->field }}" type="hidden" class="form-control @if ($class->errors) is-invalid @endif" value="{{ $value }}">
             <div class="row">
                 <div class="empty col-md-3">
                     <div class="btn select-file btn btn-primary btn-sm">Загрузить файл</div>
@@ -24,9 +24,9 @@
                     @endif
                 </div>
             </div>
-            <div class="invalid-feedback invalid-feedback-{{$class->field}}">
+            <div class="invalid-feedback invalid-feedback-{{ $class->field }}">
                 @foreach($class->errors as $k=>$i)
-                    {{$i}}<br>
+                    {{ $i }}<br>
                 @endforeach
             </div>
         </div>
